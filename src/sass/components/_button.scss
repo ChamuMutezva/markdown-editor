@@ -1,0 +1,38 @@
+@use '../base';
+
+.btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-save {
+    background: base.$clr-orange-med;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.btn-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+.navbar-toggler {
+	
+}
+*/
+.menu-btn-js {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.hide-icon-js {
+    display: none;
+}
+
+.hide-markdown {
+    display: none;
+}

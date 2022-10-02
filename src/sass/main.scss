@@ -1,4 +1,14 @@
 @use "./base";
+@use "./utils";
+@use "./components";
+@use "./layouts";
+
 body {
-    background-color: aquamarine;
+    background-color: base.$clr-white;
+    font-family: 'Roboto Slab', serif;
+    overflow: hidden;
+}
+
+.App {
+    width: 100%;
 }

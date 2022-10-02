@@ -1,19 +1,22 @@
 import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-import './App.css'
-import './css/main.css'
+//import './css/main.css'
+import './sass/main.scss'
 import Header from './header/Header'
+import MainComponent from './main/MainComponent'
+import AsideNav from './aside/AsideNav'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [toggleMenu, setToggleMenu] = useState(false)
+  function clickMenu(evt: React.MouseEvent<HTMLElement>) {
+    console.log(evt.target)
+    setToggleMenu(!toggleMenu)
+  }
   return (
-    <div className="App">      
-     <Header />
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+    <div className="App">
+      <AsideNav expand={toggleMenu} />
+      <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
+        <Header click={clickMenu} toggle={toggleMenu} />
+        <MainComponent />
       </div>
     </div>
   )

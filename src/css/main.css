@@ -82,10 +82,131 @@ select {
     scroll-behavior: auto !important;
   }
 }
-button {
-  background-color: hsl(225deg, 9%, 9%);
+/* screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  /* added line */
+  border: 0;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-save {
+  background: hsl(13deg, 75%, 58%);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.btn-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+.navbar-toggler {
+
+}
+*/
+.menu-btn-js {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide-icon-js {
+  display: none;
+}
+
+.hide-markdown {
+  display: none;
+}
+
+.header {
+  background-color: hsl(220deg, 7%, 18%);
+  color: hsl(0deg, 0%, 100%);
+  position: relative;
+}
+
+.top-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.nav {
+  flex: 1 1 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-collapse {
+  width: 250px;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  background: red;
+  height: 100vh;
+  transform: translate3d(-250px, 0, 0);
+  transition: transform 0.3s;
+}
+
+.collapse {
+  transform: translateZ(0);
+}
+
+.main-page {
+  transition: transform 0.3s;
+}
+
+.main-page.collapse {
+  transform: translate3d(250px, 0, 0);
+}
+
+.current-file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 90%;
+  background-color: hsl(216deg, 8%, 12%);
+  padding: 1rem;
+}
+
+.file,
+.maintenance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.preview {
+  background-color: hsl(0deg, 0%, 96%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body {
-  background-color: aquamarine;
+  background-color: hsl(0deg, 0%, 100%);
+  font-family: "Roboto Slab", serif;
+  overflow: hidden;
+}
+
+.App {
+  width: 100%;
 }

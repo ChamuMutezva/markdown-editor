@@ -1,0 +1,63 @@
+@use '../base';
+
+.header {
+    background-color: base.$clr-charcoal;
+    color: base.$clr-white;
+    position: relative;
+}
+
+.top-menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.nav {
+    flex: 1 1 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-collapse {
+    width: 250px;
+    position: absolute;
+    left: 0;
+    top: 0px;
+    background: red;
+    height: 100vh;
+    // transform: translateX(-100%);
+    transform: translate3d(-250px, 0, 0);
+    transition: transform .3s
+}
+
+.collapse {
+    transform: translateZ(0);
+}
+
+.main-page {
+    transition: transform .3s;   
+}
+
+.main-page.collapse {
+    transform: translate3d(250px, 0, 0);
+}
+
+.current-file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1 90%;
+    background-color: base.$clr-almost-black;
+    padding: 1rem;
+}
+
+.file,
+.maintenance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

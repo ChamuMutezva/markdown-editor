@@ -1,57 +1,38 @@
 import React from 'react'
-import { useState } from 'react'
-import IconClose from '../assets/icon-close.svg'
-import MenuIcon from '../assets/icon-menu.svg'
-function Header() {
-    const [toggleMenu, setToggleMenu] = useState(false)
-    function clickMenu(evt: React.MouseEvent<HTMLElement>) {
-        console.log(evt.target)
-        setToggleMenu(!toggleMenu)
-    }
+import DeleteRecord from '../assets/icon-delete.svg'
+import SaveNotes from '../assets/icon-save.svg'
+import Document from "../assets/icon-document.svg"
+import Button from './Button'
+// import NavList from '../aside/NavList'
+function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean }) {
+   
 
     return (
-        <nav>
-            <button
-                type="button"
-                onClick={clickMenu}
-                className="navbar-toggler menu-btn-js"
-                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded={toggleMenu}
-                aria-label="Toggle menu navigation">
-                <img className="menu-image" src={MenuIcon} alt="" />
-                <img className="close hide-icon-js" src={IconClose} alt="" />
-            </button>
-            <div className="collapse navbar-collapse"
-                id="navbarSupportedContent">
-                <ul className="navbar-nav flex">
-                    <li className="nav-item uppercase">
-                        <a className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
-                            aria-current="page" href="./">
-                            Home
-                        </a>
-                    </li>
-                    <li className="nav-item uppercase">
-                        <a className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
-                            href="./">
-                            Destination
-                        </a>
-                    </li>
-                    <li className="nav-item uppercase">
-                        <a className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
-                            href="./">
-                            Crew
-                        </a>
-                    </li>
-                    <li className="nav-item uppercase">
-                        <a className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
-                            href="./">
-                            Technology
-                        </a>
-                    </li>
-                </ul>
+        <header className="header">
+            <div className="top-menu">
+                <nav className="nav">
+                    {/*  <NavList expand={toggleMenu} /> */}
+                    <Button click={props.click} expand={props.toggle} />
+                </nav>
+
+                <div className="current-file">
+                    <div className="file">
+                        <img src={Document} alt="current document" />
+                        <span>Welcome.md</span>
+                    </div>
+                    <div className="maintenance">
+                        <button className="btn btn-delete">
+                            <img src={DeleteRecord} alt="" />
+                            <span className="sr-only">Delete a record</span>
+                        </button>
+                        <button className="btn btn-save">
+                            <img src={SaveNotes} alt="" />
+                            <span className="sr-only">Save changes</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </nav>
+        </header>
     )
 }
 

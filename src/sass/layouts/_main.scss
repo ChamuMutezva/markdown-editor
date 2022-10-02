@@ -1,0 +1,8 @@
+@use '../base';
+
+.preview {
+    background-color: base.$clr-off-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
