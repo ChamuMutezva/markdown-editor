@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DeleteRecord from '../assets/icon-delete.svg'
 import SaveNotes from '../assets/icon-save.svg'
 import Document from "../assets/icon-document.svg"
 import Button from './Button'
 // import NavList from '../aside/NavList'
 function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean }) {
-   
+    const [changeTitle, setChangeTitle] = useState("readme")
+    function handleChange(evt: { target: any }) {
+        console.log(evt.target)
+        setChangeTitle(evt.target.value)
+    }
 
     return (
         <header className="header">
@@ -18,7 +22,15 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                 <div className="current-file">
                     <div className="file">
                         <img src={Document} alt="current document" />
-                        <span>Welcome.md</span>
+                        <label className="document-title-wrapper">
+                            <span className="sr-only">document title</span>
+                            <input type="text"
+                                name="document-title"
+                                id="document-title"
+                                onChange={handleChange}
+                                value={changeTitle}
+                                className="document-title" />
+                        </label>
                     </div>
                     <div className="maintenance">
                         <button className="btn btn-delete">

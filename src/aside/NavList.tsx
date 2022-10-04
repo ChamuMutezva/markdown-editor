@@ -5,10 +5,15 @@ function NavList(props: { expand: boolean }) {
     return (
         <aside className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
             id="navbarSupportedContent">
+            <h2>Markdown</h2>
+            <h3>My Documents</h3>
+            <button>
+                New Document
+            </button>
             <ul className="navbar-nav flex">
-                <NavListItem link="home" />
-                <NavListItem link="Destination" />
-                <NavListItem link="Crew" />
+                <NavListItem link="untitled-document.md" />
+                <NavListItem link="welcome.md" />
+                <NavListItem link="readme.md" />
             </ul>
         </aside>
     )

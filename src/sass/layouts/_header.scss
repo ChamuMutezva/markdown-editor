@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 1rem;
+    // gap: 1rem;
 }
 
 .nav {
@@ -19,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 2rem;
 }
 
 .navbar-collapse {
@@ -26,9 +27,9 @@
     position: absolute;
     left: 0;
     top: 0px;
-    background: red;
+    background: hsla(216, 8%, 12%, 1);
     height: 100vh;
-    // transform: translateX(-100%);
+    color: base.$clr-white;
     transform: translate3d(-250px, 0, 0);
     transition: transform .3s
 }
@@ -38,7 +39,7 @@
 }
 
 .main-page {
-    transition: transform .3s;   
+    transition: transform .3s;
 }
 
 .main-page.collapse {
@@ -49,7 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex: 1 1 90%;
+    flex: 1 1 80%;
     background-color: base.$clr-almost-black;
     padding: 1rem;
 }
@@ -60,4 +61,28 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    flex: 1 1 60%;
+}
+
+.maintenance {
+    flex: 1 1 30%;
+}
+
+.file {
+    width: 100%;
+}
+
+.document-title-wrapper {
+    flex: 1 1 80%;
+    max-width: 300px;
+
+}
+
+.document-title {
+    background: transparent;
+    color: white;
+    border: none;
+    appearance: none;
+    width: 100%;
+    cursor: text;
 }
