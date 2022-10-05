@@ -18,6 +18,13 @@
     align-items: center;
 }
 
+.btn-add-document {
+    background-color: base.$clr-orange-med;
+    color: base.$clr-white;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
 /*
 .navbar-toggler {
 	
@@ -26,7 +33,7 @@
 .menu-btn-js {
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
 }
 
 .hide-icon-js {

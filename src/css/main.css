@@ -117,6 +117,13 @@ select {
   align-items: center;
 }
 
+.btn-add-document {
+  background-color: hsl(13deg, 75%, 58%);
+  color: hsl(0deg, 0%, 100%);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
 /*
 .navbar-toggler {
 
@@ -155,22 +162,6 @@ select {
   justify-content: center;
   align-items: center;
   min-width: 2rem;
-}
-
-.navbar-collapse {
-  width: 250px;
-  position: absolute;
-  left: 0;
-  top: 0px;
-  background: hsl(216deg, 8%, 12%);
-  height: 100vh;
-  color: hsl(0deg, 0%, 100%);
-  transform: translate3d(-250px, 0, 0);
-  transition: transform 0.3s;
-}
-
-.collapse {
-  transform: translateZ(0);
 }
 
 .main-page {
@@ -221,11 +212,48 @@ select {
   cursor: text;
 }
 
+.navbar-collapse {
+  width: 250px;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  background: hsl(216deg, 8%, 12%);
+  height: 100vh;
+  color: hsl(0deg, 0%, 100%);
+  transform: translate3d(-250px, 0, 0);
+  transition: transform 0.3s;
+  padding-block-start: 1.5rem;
+  padding-inline-start: 1.5rem;
+}
+
+.collapse {
+  transform: translateZ(0);
+}
+
+.aside-main-title {
+  font-family: "Commissioner", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: hsl(0deg, 0%, 100%);
+  letter-spacing: 2px;
+}
+
+.aside-secondary-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 0.875rem;
+  color: hsl(216deg, 4%, 51%);
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-block: 1rem;
+}
+
 .nav-item {
   position: relative;
   display: flex;
   justify-content: start;
-  padding: 1rem;
+  padding-block: 1rem;
   cursor: pointer;
 }
 .nav-item::before {
