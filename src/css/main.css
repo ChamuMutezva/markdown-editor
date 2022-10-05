@@ -82,6 +82,9 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/* ------------------------------------*/
+/*        FONT SIZES                   */
+/*-------------------------------------*/
 /* screen reader only */
 .sr-only {
   position: absolute;
@@ -193,25 +196,63 @@ select {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  flex: 1 1 50%;
+  flex: 1 1 60%;
 }
 
 .maintenance {
-  flex: 1 1 100%;
+  flex: 1 1 30%;
 }
 
 .file {
   width: 100%;
 }
 
-.document-title {
+.document-title-wrapper {
   flex: 1 1 80%;
   max-width: 300px;
+}
+
+.document-title {
   background: transparent;
   color: white;
   border: none;
   appearance: none;
+  width: 100%;
   cursor: text;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  padding: 1rem;
+  cursor: pointer;
+}
+.nav-item::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  margin-block-start: -8px;
+  content: "";
+  background-image: url("../assets/icon-document.svg");
+  background-repeat: no-repeat;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2rem;
+  align-items: first baseline;
+  color: hsl(0deg, 0%, 100%);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+.doc-nav-title {
+  font-size: 0.8125rem;
+  color: hsl(216deg, 4%, 51%);
 }
 
 .preview {
@@ -229,4 +270,5 @@ body {
 
 .App {
   width: 100%;
+  overflow: hidden;
 }

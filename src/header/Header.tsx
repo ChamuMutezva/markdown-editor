@@ -14,8 +14,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
     return (
         <header className="header">
             <div className="top-menu">
-                <nav className="nav">
-                    {/*  <NavList expand={toggleMenu} /> */}
+                <nav className="nav">                    
                     <Button click={props.click} expand={props.toggle} />
                 </nav>
 
@@ -23,12 +22,13 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                     <div className="file">
                         <img src={Document} alt="current document" />
                         <label className="document-title-wrapper">
-                            <span className="sr-only">document title</span>
+                            <span className="sr-only">edit document title</span>
                             <input type="text"
                                 name="document-title"
                                 id="document-title"
                                 onChange={handleChange}
                                 value={changeTitle}
+                                placeholder="Document title"
                                 className="document-title" />
                         </label>
                     </div>

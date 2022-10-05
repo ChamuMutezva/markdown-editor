@@ -1,3 +1,4 @@
+@use "../utils";
 $clr-black: hsla(225, 9%, 9%, 1);
 $clr-almost-black: hsla(216, 8%, 12%, 1);
 $clr-charcoal: hsla(220, 7%, 18%, 1);
@@ -10,6 +11,26 @@ $clr-off-white: hsla(0, 0%, 96%);
 $clr-white: hsla(0, 0%, 100%);
 $clr-orange-med: hsla(13, 75%, 58%);
 $clr-peach-light: hsla(21, 86%, 67%);
+$clr-text-grey: hsla(216, 4%, 51%, 1);
+
+
+$font: 'Roboto Slab',
+serif;
+/* ------------------------------------*/
+/*        FONT SIZES                   */
+/*-------------------------------------*/
+
+$fs-12: utils.calculateRem(12);
+$fs-13: utils.calculateRem(13);
+$fs-14: utils.calculateRem(14);
+$fs-15: utils.calculateRem(15);
+$fs-16: utils.calculateRem(16);
+$fs-18: utils.calculateRem(18);
+$fs-24: utils.calculateRem(24);
+$fs-28: utils.calculateRem(28);
+$fs-36: utils.calculateRem(36);
+$fs-40: utils.calculateRem(40);
+$fs-56: utils.calculateRem(56);
 
 /* screen reader only */
 .sr-only {

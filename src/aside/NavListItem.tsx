@@ -1,13 +1,18 @@
-import Document from "../assets/icon-document.svg"
+// import Document from "../assets/icon-document.svg"
 
-function NavListItem(props: { link: string }) {
+function NavListItem(props: { link: string; date: string }) {
     return (
         <li className="nav-item uppercase">
-            <button className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
+            <a className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
+                href="./"
                 aria-current="page" >
-                <img src={Document} alt="" />
-                {props.link}
-            </button>
+                <span className="doc-nav-title">
+                    {props.link}
+                </span>
+                <span className="date-created">
+                    {props.date}
+                </span>
+            </a>
         </li>
     )
 }

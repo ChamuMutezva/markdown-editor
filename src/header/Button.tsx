@@ -7,7 +7,8 @@ function Button(props: { click: React.MouseEventHandler<HTMLButtonElement>; expa
             type="button"
             onClick={props.click}
             className="btn navbar-toggler menu-btn-js"
-            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded={props.expand}
             aria-label="Toggle menu navigation">
