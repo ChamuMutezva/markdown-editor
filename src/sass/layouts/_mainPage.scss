@@ -1,0 +1,19 @@
+@use '../base';
+
+.preview {
+    background-color: base.$clr-off-white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+}
+
+.markdown-content {
+    font-family: base.$font;
+    font-weight: 400;
+    font-size: base.$fs-14;
+    color: base.$clr-text-grey;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
