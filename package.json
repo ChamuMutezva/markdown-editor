@@ -7,12 +7,13 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "sass" : "sass src/sass:src/css --watch --no-source-map"
+    "sass": "sass src/sass:src/css --watch --no-source-map"
   },
   "dependencies": {
     "netlify-cli": "^12.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-showdown": "^2.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
