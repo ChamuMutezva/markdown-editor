@@ -1,6 +1,26 @@
 @use '../base';
+@use '../utils';
 
-.preview {
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.editor-wrapper {
+    flex: 1 1 50%;
+}
+
+.editor {
+    display: block;
+    width: 100%;
+    resize: none;
+}
+
+.preview-toggle {
+    flex: 1 1 50%;
     background-color: base.$clr-off-white;
     display: flex;
     justify-content: space-between;
@@ -16,4 +36,57 @@
     color: base.$clr-text-grey;
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+.react-mde .mde-header {
+    display: none;
+}
+
+#root,
+.App,
+.main {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.react-mde-wrapper.preview {
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.mde-text {
+    min-height: 100vh;
+}
+
+.react-mde .invisible {
+    @include utils.mQ(51.25rem) {
+        display: block !important;
+        flex: 1 1 50%;
+    }
+}
+
+.react-mde {
+    @include utils.mQ(51.25rem) {
+        display: flex;
+    }
+}
+
+.react-mde * {
+    box-sizing: border-box;
+
+    @include utils.mQ(51.25rem) {
+        flex: 1 1;
+    }
+}
+
+.mde-textarea-wrapper {
+	background: forestgreen;
+	height: 100%;
+}
+
+.mde-textarea-wrapper textarea.mde-text {	
+	 resize: none; 
+	 overflow-y: scroll; 
+	height: 100% !important;
+   // background-color: aqua;
 }
