@@ -5,14 +5,19 @@
     padding-inline: 1rem;
     width: 100%;
     padding-block: 2.5rem;
+    position: relative;
 
     @include utils.mQ(45rem) {
-        display: flex
+        display: flex;
+        gap: 2rem;
     }
 }
 
 .editor,
 .result {
+    max-width: 42rem;
+    margin-inline: auto;
+
     @include utils.mQ(45rem) {
         flex: 1 1 50%;
     }
@@ -26,6 +31,14 @@
     align-items: center;
     padding-block: 0.75rem;
     padding-inline: 1rem;
+}
+
+.markdown-toggle-heading {
+    text-transform: uppercase;
+    font-family: base.$font-roboto-mono;
+    font-weight: 400;
+    font-size: base.$fs-14;
+    color: base.$clr-text-grey;
 }
 
 ol li {
@@ -58,6 +71,7 @@ form {
     width: 100%;
     height: 100%;
     min-height: 100vh;
+    resize: none;
 }
 
 .result h1 {
@@ -77,6 +91,7 @@ form {
     font-size: base.$fs-24;
     font-weight: 700;
     color: base.$clr-charcoal2;
+    padding-block: 1rem;
 }
 
 .result h4 {
@@ -109,8 +124,57 @@ pre {
     font-size: base.$fs-14;
     font-weight: 400;
     color: base.$clr-text-grey;
-    line-height: 1.6;
+    line-height: 1.7;
 }
+
+.result p {
+    padding-block: 1.5rem;
+}
+
+.result-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-inline: 1rem;
+    background: base.$clr-white;
+
+    @include utils.mQ(45rem) {
+        position: relative;
+        padding-inline: 3rem;
+    }
+}
+
+.editor-form-container {
+    @include utils.mQ(45rem) {
+        display: none;
+    }
+}
+
+.result blockquote p {
+    font-weight: 700;
+    color: base.$clr-almost-black;
+}
+
+blockquote {
+    background: base.$clr-off-white;
+    margin-block: 1rem;
+    padding-inline: 1rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: base.$clr-orange-med;
+    }
+}
+
+
 
 
 /*

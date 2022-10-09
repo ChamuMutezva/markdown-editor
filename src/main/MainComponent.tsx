@@ -24,15 +24,18 @@ function MainComponent() {
                         {markdownPreview ? "Preview" : "Markdown"}
                     </p>
                 </div>
-                <button className="btn btn-preview" onClick={toggleMarkDown}>
+                <button
+                    className="btn btn-preview"
+                    onClick={toggleMarkDown}
+                    aria-pressed={markdownPreview ? "true" : "false"}>
                     <img className={`${markdownPreview ? "" : "hide-markdown"}`}
-                        src={markdownPreview ? ShowPreview : HidePreview}
+                        src={markdownPreview ? HidePreview : ShowPreview}
                         alt="Show preview"
                     />
                 </button>
             </div>
-            <div className="container">
-                <div className="editor">
+            <div className={`container ${markdownPreview ? "markdown-preview" : "markdown-write"}`}>
+                <div className={`editor ${markdownPreview ? "editor-form-container" : ""}`}>
                     <form>
                         <textarea name="markdown"
                             id="markdown-content"
@@ -42,7 +45,7 @@ function MainComponent() {
                         </textarea>
                     </form>
                 </div>
-                <div className="result">
+                <div className={`result ${markdownPreview ? "result-container" : ""}`}>
                     <MarkdownView
                         markdown={content}
                         options={{ tables: true, emoji: true }}
