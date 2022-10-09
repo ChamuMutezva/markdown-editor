@@ -4,7 +4,8 @@ import NavListItem from './NavListItem'
 function NavList(props: { expand: boolean }) {
     return (
         <aside className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
-            id="navbarSupportedContent">
+            id="navbarSupportedContent"
+            role="menu">
             <h2 className="aside-main-title">Markdown</h2>
             <h3 className="aside-secondary-title">My Documents</h3>
             <button className="btn btn-add-document">

@@ -22,7 +22,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                     <div className="file">
                         <img src={Document} alt="current document" />
                         <label className="document-title-wrapper">
-                            <span className="sr-only">edit document title</span>
+                            <span className="sr-only show-doc-title">Document title</span>
                             <input type="text"
                                 name="document-title"
                                 id="document-title"
@@ -39,7 +39,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                         </button>
                         <button className="btn btn-save">
                             <img src={SaveNotes} alt="" />
-                            <span className="sr-only">Save changes</span>
+                            <span className="sr-only show-btn-text">Save changes</span>
                         </button>
                     </div>
                 </div>

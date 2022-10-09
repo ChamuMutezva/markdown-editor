@@ -59,14 +59,14 @@
 }
 
 .react-mde .invisible {
-    @include utils.mQ(51.25rem) {
+    @include utils.mQ(45rem) {
         display: block !important;
-        flex: 1 1 50%;
+        // flex: 1 1 50%;
     }
 }
 
 .react-mde {
-    @include utils.mQ(51.25rem) {
+    @include utils.mQ(45rem) {
         display: flex;
     }
 }
@@ -74,19 +74,22 @@
 .react-mde * {
     box-sizing: border-box;
 
-    @include utils.mQ(51.25rem) {
+    @include utils.mQ(45rem) {
         flex: 1 1;
+        width: 50vw;
     }
 }
 
-.mde-textarea-wrapper {
-	background: forestgreen;
-	height: 100%;
+.react-mde-wrapper.write .react-mde * {
+    width: 100vw;
 }
 
-.mde-textarea-wrapper textarea.mde-text {	
-	 resize: none; 
-	 overflow-y: scroll; 
-	height: 100% !important;
-   // background-color: aqua;
+.mde-textarea-wrapper {
+    height: 100%;
+}
+
+.mde-textarea-wrapper textarea.mde-text {
+    resize: none;
+    overflow-y: visible;
+    height: 100% !important;
 }
