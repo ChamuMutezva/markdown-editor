@@ -14,11 +14,11 @@ $clr-peach-light: hsla(21, 86%, 67%);
 $clr-text-grey: hsla(216, 4%, 51%, 1);
 
 
-$font: 'Roboto Slab',
+$font-roboto-slab: 'Roboto Slab',
 serif;
-$font-secondary: 'Commissioner',
+$font-commissioner: 'Commissioner',
 sans-serif;
-$font-markdown: 'Roboto Mono',
+$font-roboto-mono: 'Roboto Mono',
 monospace;
 /* ------------------------------------*/
 /*        FONT SIZES                   */
@@ -30,6 +30,7 @@ $fs-14: utils.calculateRem(14);
 $fs-15: utils.calculateRem(15);
 $fs-16: utils.calculateRem(16);
 $fs-18: utils.calculateRem(18);
+$fs-20: utils.calculateRem(20);
 $fs-24: utils.calculateRem(24);
 $fs-28: utils.calculateRem(28);
 $fs-32: utils.calculateRem(32);

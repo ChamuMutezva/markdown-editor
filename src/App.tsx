@@ -17,6 +17,7 @@ function App() {
       <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
         <Header click={clickMenu} toggle={toggleMenu} />
         <MainComponent />
+
       </div>
     </div>
   )

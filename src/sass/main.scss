@@ -6,10 +6,10 @@
 body {
     background-color: base.$clr-white;
     font-family: 'Roboto Slab', serif;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .App {
     width: 100%;
-    overflow: hidden;
+    //overflow: hidden;
 }
