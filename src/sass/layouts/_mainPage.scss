@@ -56,6 +56,9 @@
 
 .mde-text {
     min-height: 100vh;
+    font-family: base.$font-markdown;
+    font-size: base.$fs-14;
+    font-weight: 400;
 }
 
 .react-mde .invisible {
@@ -76,7 +79,7 @@
 
     @include utils.mQ(45rem) {
         flex: 1 1;
-        width: 50vw;
+        // width: 50vw;
     }
 }
 
@@ -92,4 +95,37 @@
     resize: none;
     overflow-y: visible;
     height: 100% !important;
+}
+
+.mde-preview .mde-preview-content h1 {
+    font-size: base.$fs-32 !important;
+    font-weight: 700 !important;
+    color: base.$clr-charcoal2;
+}
+
+.mde-preview .mde-preview-content h2 {
+    font-size: base.$fs-28 !important;
+    font-weight: 300 !important;
+    color: base.$clr-charcoal2;
+}
+
+.mde-preview .mde-preview-content p,
+li {
+    font-size: base.$fs-14 !important;
+    font-weight: 400 !important;
+    color: base.$clr-text-grey;
+}
+
+.mde-preview .mde-preview-content h3 {
+    font-size: base.$fs-24 !important;
+    font-weight: 700 !important;
+    color: base.$clr-charcoal2;
+}
+
+li {
+    list-style: disc;
+
+    &::marker {
+        color: red;
+    }
 }

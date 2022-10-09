@@ -18,6 +18,8 @@ $font: 'Roboto Slab',
 serif;
 $font-secondary: 'Commissioner',
 sans-serif;
+$font-markdown: 'Roboto Mono',
+monospace;
 /* ------------------------------------*/
 /*        FONT SIZES                   */
 /*-------------------------------------*/
@@ -30,6 +32,7 @@ $fs-16: utils.calculateRem(16);
 $fs-18: utils.calculateRem(18);
 $fs-24: utils.calculateRem(24);
 $fs-28: utils.calculateRem(28);
+$fs-32: utils.calculateRem(32);
 $fs-36: utils.calculateRem(36);
 $fs-40: utils.calculateRem(40);
 $fs-56: utils.calculateRem(56);
