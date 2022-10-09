@@ -1,5 +1,6 @@
 import React from 'react'
 import NavListItem from './NavListItem'
+import ThemeControl from './ThemeControl'
 
 function NavList(props: { expand: boolean }) {
     return (
@@ -16,6 +17,7 @@ function NavList(props: { expand: boolean }) {
                 <NavListItem link="welcome.md" date="1 April 2022"/>
                 <NavListItem link="readme.md" date="2 April 2022" />
             </ul>
+            <ThemeControl />
         </aside>
     )
 }
