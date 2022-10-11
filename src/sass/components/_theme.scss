@@ -1,4 +1,5 @@
 @use "../utils";
+
 /* 
   get rid of the fieldset styling and keep 
   this all on a single line 
@@ -7,7 +8,7 @@
   border: none;
   padding: 0;
   white-space: nowrap;
-
+  bottom: -5rem;
 }
 
 /*
@@ -75,12 +76,12 @@
    */
 
 .radio-switch:focus-within label:first-of-type:after {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2196f3; 
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2196f3;
 }
 
 /* polyfill class*/
 .radio-switch.focus-within label:first-of-type:after {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2196f3; 
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2196f3;
 }
 
 /* making the switch UI.  */
@@ -122,12 +123,12 @@
     Visually change the switch UI to match the
     checked state of the first radio button
   */
-.radio-switch input:first-of-type:checked ~ label:first-of-type:after {
+.radio-switch input:first-of-type:checked~label:first-of-type:after {
   //background: #2196f3;
   background-color: #ffffff;
 }
 
-.radio-switch input:first-of-type:checked ~ label:first-of-type:before {
+.radio-switch input:first-of-type:checked~label:first-of-type:before {
   transform: translateX(-2.3em);
 }
 
@@ -135,7 +136,7 @@
      option is toggled, the first label will overlay on top of the
      Switch ui, and the switch can be pressed again to toggle back
      to the prevoius state. */
-.radio-switch input:last-of-type:checked ~ label:last-of-type {
+.radio-switch input:last-of-type:checked~label:last-of-type {
   z-index: 1;
 }
 

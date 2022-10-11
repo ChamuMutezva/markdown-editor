@@ -1,15 +1,22 @@
 import React, { createContext, useState, useEffect } from 'react'
-export const DataContext = createContext({})
+import { ThemeTypes } from './Types'
 
-export const DataProvider = (props: { children: string | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal }) => {
-    const [toggleMenu, setToggleMenu] = useState(false)
-    function clickMenu(evt: React.MouseEvent<HTMLElement>) {
-        console.log(evt.target)
-        setToggleMenu(!toggleMenu)
+const  defaultState = {
+    theme: false,
+}
+
+export const DataContext = createContext<ThemeTypes>(defaultState)
+
+export const DataProvider = (props: { children: any }) => {   
+    const [theme, setTheme] = useState(defaultState.theme)
+   
+
+    function onChangeTheme() {
+         setTheme(!theme)
     }
 
     return (
-        <DataContext.Provider value={{ toggleMenu, setToggleMenu , clickMenu}}>
+        <DataContext.Provider value={{ theme, onChangeTheme }}>
             {props.children}
         </DataContext.Provider>
     )
