@@ -15,7 +15,7 @@ function App() {
     setToggleMenu(!toggleMenu)
   }
   return (
-    <div className={`App ${theme ? "light-mode" : ""}`}>
+    <div className={`App ${toggleMenu ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
       <AsideNav expand={toggleMenu} />
       <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
         <Header click={clickMenu} toggle={toggleMenu} />

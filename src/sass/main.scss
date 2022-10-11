@@ -9,7 +9,10 @@ body {
     overflow-x: hidden;
 }
 
-.App {
-    width: 100%;
-    //overflow: hidden;
+.app {
+    width: 100%;   
+}
+.app-max-height {
+    height: 100vh;
+    overflow: hidden;
 }
