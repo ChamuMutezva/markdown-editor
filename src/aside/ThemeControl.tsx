@@ -8,7 +8,6 @@ function ThemeControl() {
     const { theme, onChangeTheme } = useContext(DataContext)
 
     const onChange = () => {
-        //  setTheme(!theme)
         onChangeTheme?.(theme)
         console.log(theme)
     }

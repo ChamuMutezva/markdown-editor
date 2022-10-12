@@ -9,6 +9,7 @@ export const DataContext = createContext<ThemeTypes>(defaultState)
 
 export const DataProvider = (props: { children: any }) => {   
     const [theme, setTheme] = useState(defaultState.theme)
+   // const [ID, setID] = useState(null)
    
 
     function onChangeTheme() {

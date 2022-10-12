@@ -1,21 +1,41 @@
-import React, { useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import MarkdownView from 'react-showdown'
+import { ContentContext } from '../context/ContentContext'
+
 import ShowPreview from '../assets/icon-show-preview.svg'
 import HidePreview from '../assets/icon-hide-preview.svg'
 import data from '../assets/data.json'
 
 
 function MainComponent() {
-    const [content, setContent] = useState(data[1].content)
+
+    const { ID } = useContext(ContentContext)
+    const [allData, setAllData] = useState(data)
+    
+    const targetData = data.find(item => item.name === ID)
+    console.log(targetData)
+
+    const [content, setContent] = useState(allData[1].content)
+    //const [currentID, setCurrentID] = useState(allData[1].name)
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
+    
+
     function handleChange(evt: { target: { value: React.SetStateAction<string> } }) {
         setContent(evt.target.value)
     }
+
     function toggleMarkDown() {
         setMarkdownPreview(!markdownPreview)
         setSelectedTab(selectedTab === 'write' ? 'preview' : 'write')
     }
+
+    useEffect(() => {
+        if (targetData?.content !== undefined) {
+            setContent(targetData?.content)
+        }
+    }, [ID])
+
     return (
         <main className="main editor-container">
             <div className="preview-toggle">
