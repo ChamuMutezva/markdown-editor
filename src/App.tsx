@@ -20,7 +20,7 @@ function App() {
   return (
     <div className={`App ${toggleMenu ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
       <ContentProvider>
-        <AsideNav expand={toggleMenu} />
+        <AsideNav expand={toggleMenu} data={Data} />
         <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
           <Header click={clickMenu} toggle={toggleMenu} />
           <MainComponent  />

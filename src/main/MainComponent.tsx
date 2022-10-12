@@ -9,14 +9,11 @@ import data from '../assets/data.json'
 
 function MainComponent() {
 
-    const { ID } = useContext(ContentContext)
-    const [allData, setAllData] = useState(data)
-    
+    const { ID } = useContext(ContentContext)  
     const targetData = data.find(item => item.name === ID)
     console.log(targetData)
 
-    const [content, setContent] = useState(allData[1].content)
-    //const [currentID, setCurrentID] = useState(allData[1].name)
+    const [content, setContent] = useState(data[1].content)   
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
     

@@ -1,20 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { ContentContext } from '../context/ContentContext'
 import DeleteRecord from '../assets/icon-delete.svg'
 import SaveNotes from '../assets/icon-save.svg'
 import Document from "../assets/icon-document.svg"
 import Button from './Button'
-// import NavList from '../aside/NavList'
+
 function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean }) {
-    const [changeTitle, setChangeTitle] = useState("readme")
+    const { ID } = useContext(ContentContext)
+    const [changeTitle, setChangeTitle] = useState(ID)
     function handleChange(evt: { target: any }) {
         console.log(evt.target)
         setChangeTitle(evt.target.value)
     }
 
+    useEffect(() => {
+        setChangeTitle(ID)
+    }, [ID])
+
     return (
         <header className="header">
             <div className="top-menu">
-                <nav className="nav">                    
+                <nav className="nav">
                     <Button click={props.click} expand={props.toggle} />
                 </nav>
 
