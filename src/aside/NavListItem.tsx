@@ -1,28 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ContentContext } from "../context/ContentContext";
-import Data from '../assets/data.json'
 
-function NavListItem(props: { link: string; date: string }) {
+function NavListItem(props: { name: string; date: string; content: string; datum: any[] }) {
     const { ID, selectContent } = useContext(ContentContext)
 
-    function handleBtnClick(id: string) {       
-       
+    function handleBtnClick(id: string) {
+
         if (id !== ID) {
             selectContent?.(id)
             console.log(ID)
+            console.log(props.datum)
         }
-       // const target = Data.find(item => item.name === id)
-       // console.log(target?.content)
+
     }
+
+    useEffect(() => {
+        const targetData = props.datum.find(target => ID === target.name)
+        console.log(targetData)
+    }, [ID])
 
     return (
         <li className="nav-item uppercase">
             <button className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
-                data-name={props.link}
-                onClick={() => handleBtnClick(props.link)}
+                data-name={props.name}
+                onClick={() => handleBtnClick(props.name)}
                 aria-current="page" >
                 <span className="doc-nav-title">
-                    {props.link}
+                    {props.name}
                 </span>
                 <span className="date-created">
                     {props.date}

@@ -13,8 +13,12 @@ function Button(props: { click: React.MouseEventHandler<HTMLButtonElement>; expa
             aria-expanded={props.expand}
             aria-haspopup="menu"
             aria-label="Toggle menu navigation">
-            <img className={`menu-image ${props.expand ? "hide-icon-js" : ""}`} src={MenuIcon} alt="" />
-            <img className={`close ${props.expand ? "" : "hide-icon-js"}`} src={IconClose} alt="" />
+            <img className={`menu-image ${props.expand ? "hide-icon-js" : ""}`}
+                src={MenuIcon}
+                alt="" />
+            <img className={`close ${props.expand ? "" : "hide-icon-js"}`}
+                src={IconClose}
+                alt="" />
         </button>
     )
 }

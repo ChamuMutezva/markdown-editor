@@ -9,7 +9,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
     const { ID } = useContext(ContentContext)
     const [changeTitle, setChangeTitle] = useState(ID)
     function handleChange(evt: { target: any }) {
-        console.log(evt.target)
+        // console.log(evt.target)
         setChangeTitle(evt.target.value)
     }
 

@@ -3,13 +3,11 @@ import LightMode from "../assets/icon-light-mode.svg"
 import DarkMode from "../assets/icon-dark-mode.svg"
 import { DataContext } from '../context/Context'
 function ThemeControl() {
-    //  const [theme, setTheme] = useState(false)
-
+   
     const { theme, onChangeTheme } = useContext(DataContext)
 
     const onChange = () => {
-        onChangeTheme?.(theme)
-        console.log(theme)
+        onChangeTheme?.(theme)      
     }
 
     return (

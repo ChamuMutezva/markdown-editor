@@ -6,8 +6,9 @@ function NavList(props: { data: any[]; expand: any }) {
     function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
         console.log(evt)
     }
-    const dataList = props.data.map(item => <NavListItem key={item.name} link={item.name} date={item.createdAt} />)
-   
+    const dataList = props.data.map(item => <NavListItem key={item.name} name={item.name} date={item.createdAt}
+        content={item.content} datum={props.data} />)
+
     return (
         <aside className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
             id="navbarSupportedContent"
@@ -20,11 +21,6 @@ function NavList(props: { data: any[]; expand: any }) {
             </button>
             <ul className="navbar-nav flex">
                 {dataList}
-                {/*
-                <NavListItem link="untitled-document.md" date="1 April 2022" />
-                <NavListItem link="welcome.md" date="1 April 2022" />
-                <NavListItem link="readme.md" date="2 April 2022" />
-                */}
             </ul>
             <ThemeControl />
         </aside>

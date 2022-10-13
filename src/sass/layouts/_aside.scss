@@ -69,6 +69,10 @@
     width: 85%;
     background-color: transparent;
     border: none;
+   
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .doc-nav-title {

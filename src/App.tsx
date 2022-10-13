@@ -12,18 +12,18 @@ import Data from './assets/data.json'
 function App() {
   const { theme } = useContext(DataContext)
   const [toggleMenu, setToggleMenu] = useState(false)
- 
-  function clickMenu(evt: React.MouseEvent<HTMLElement>) {
-    console.log(evt.target)
+
+  function clickMenu() {
     setToggleMenu(!toggleMenu)
   }
+
   return (
-    <div className={`App ${toggleMenu ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
+    <div className={`app ${toggleMenu ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
       <ContentProvider>
         <AsideNav expand={toggleMenu} data={Data} />
         <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
           <Header click={clickMenu} toggle={toggleMenu} />
-          <MainComponent  />
+          <MainComponent />
         </div>
       </ContentProvider>
     </div>
