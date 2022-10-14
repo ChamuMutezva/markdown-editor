@@ -4,19 +4,19 @@ import { ContentContext } from '../context/ContentContext'
 
 import ShowPreview from '../assets/icon-show-preview.svg'
 import HidePreview from '../assets/icon-hide-preview.svg'
-import data from '../assets/data.json'
+import { DataTypes } from '../context/Types'
+//import data from '../assets/data.json'
 
 
-function MainComponent() {
+function MainComponent(props: { data: DataTypes[] }) {
 
-    const { ID } = useContext(ContentContext)  
-    const targetData = data.find(item => item.name === ID)
-   // console.log(targetData)
-
-    const [content, setContent] = useState(data[1].content)   
+    const { ID } = useContext(ContentContext)
+    const targetData = props.data.find((item: { name: string }) => item.name === ID)
+    // console.log(targetData)
+    const [content, setContent] = useState(props.data[1].content)
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
-    
+
 
     function handleChange(evt: { target: { value: React.SetStateAction<string> } }) {
         setContent(evt.target.value)

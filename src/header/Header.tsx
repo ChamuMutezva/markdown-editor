@@ -1,16 +1,28 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { ContentContext } from '../context/ContentContext'
+import { DataTypes } from '../context/Types'
 import DeleteRecord from '../assets/icon-delete.svg'
 import SaveNotes from '../assets/icon-save.svg'
 import Document from "../assets/icon-document.svg"
 import Button from './Button'
 
-function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean }) {
+function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean; data: DataTypes[] }) {
     const { ID } = useContext(ContentContext)
     const [changeTitle, setChangeTitle] = useState(ID)
-    function handleChange(evt: { target: any }) {
-        // console.log(evt.target)
+
+    function handleChangeTitle(evt: { target: any }) {
+        console.log("handleChangeTitle")
+        console.log(props.data)
         setChangeTitle(evt.target.value)
+
+    }
+
+    function saveNotesChanges(evt: any) {
+        console.log(changeTitle)
+
+        // TODO: Get id value from input field and save it in CONST changeTitle
+        // TODO: Find the current data that has been edited or with title to be changed
+        // TODO: Use destructuring to update data
     }
 
     useEffect(() => {
@@ -32,7 +44,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                             <input type="text"
                                 name="document-title"
                                 id="document-title"
-                                onChange={handleChange}
+                                onChange={handleChangeTitle}
                                 value={changeTitle}
                                 placeholder="Document title"
                                 className="document-title" />
@@ -43,7 +55,8 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                             <img src={DeleteRecord} alt="" />
                             <span className="sr-only">Delete a record</span>
                         </button>
-                        <button className="btn btn-save">
+                        <button className="btn btn-save"
+                            onClick={saveNotesChanges}>
                             <img src={SaveNotes} alt="" />
                             <span className="sr-only show-btn-text">Save changes</span>
                         </button>

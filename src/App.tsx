@@ -22,8 +22,8 @@ function App() {
       <ContentProvider>
         <AsideNav expand={toggleMenu} data={Data} />
         <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
-          <Header click={clickMenu} toggle={toggleMenu} />
-          <MainComponent />
+          <Header click={clickMenu} toggle={toggleMenu} data={Data} />
+          <MainComponent data={Data}/>
         </div>
       </ContentProvider>
     </div>
