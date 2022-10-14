@@ -1,8 +1,9 @@
 import React from 'react'
 import NavListItem from './NavListItem'
 import ThemeControl from './ThemeControl'
+import { DataTypes } from '../context/Types';
 
-function NavList(props: { data: any[]; expand: any }) {
+function NavList(props: { data: DataTypes[]; expand: boolean }) {
     function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
         console.log(evt)
     }

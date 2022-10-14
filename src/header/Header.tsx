@@ -12,14 +12,23 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
 
     function handleChangeTitle(evt: { target: any }) {
         console.log("handleChangeTitle")
-        console.log(props.data)
+         console.log(props.data)
         setChangeTitle(evt.target.value)
 
     }
 
     function saveNotesChanges(evt: any) {
         console.log(changeTitle)
+        props.data.map(item => {
+            if (item.name === ID) {
+             return   {                
+                    ...item,
+                    name: changeTitle
+                }
 
+            }
+            return item
+        })
         // TODO: Get id value from input field and save it in CONST changeTitle
         // TODO: Find the current data that has been edited or with title to be changed
         // TODO: Use destructuring to update data
