@@ -36,9 +36,10 @@
 .markdown-toggle-heading {
     text-transform: uppercase;
     font-family: base.$font-roboto-mono;
-    font-weight: 400;
+    font-weight: 500;
     font-size: base.$fs-14;
     color: base.$clr-text-grey;
+    letter-spacing: 2px;
 }
 
 ol li {
@@ -137,6 +138,7 @@ pre {
     left: 0;
     padding-inline: 1rem;
     background: base.$clr-white;
+    width: 100%;
 
     @include utils.mQ(45rem) {
         position: relative;
@@ -173,95 +175,3 @@ blockquote {
         background-color: base.$clr-orange-med;
     }
 }
-
-
-
-
-/*
-
-
-.react-mde .mde-header {
-    display: none;
-}
-
-#root,
-.App,
-.main {
-    height: 100vh;
-    overflow: hidden;
-}
-
-.react-mde-wrapper.preview {
-    overflow-y: scroll;
-    height: 100vh;
-}
-
-.mde-text {
-    min-height: 100vh;
-    font-family: base.$font-roboto-mono;
-    font-size: base.$fs-14;
-    font-weight: 400;
-}
-
-.react-mde .invisible {
-    @include utils.mQ(45rem) {
-        display: block !important;
-        // flex: 1 1 50%;
-    }
-}
-
-.react-mde {
-    @include utils.mQ(45rem) {
-        display: flex;
-    }
-}
-
-.react-mde * {
-    box-sizing: border-box;
-
-    @include utils.mQ(45rem) {
-        flex: 1 1;
-        // width: 50vw;
-    }
-}
-
-.react-mde-wrapper.write .react-mde * {
-    width: 100vw;
-}
-
-.mde-textarea-wrapper {
-    height: 100%;
-}
-
-.mde-textarea-wrapper textarea.mde-text {
-    resize: none;
-    overflow-y: visible;
-    height: 100% !important;
-}
-
-
-
-
-
-
-
-.mde-preview .mde-preview-content h3 {
-    font-size: base.$fs-24 !important;
-    font-weight: 700 !important;
-    color: base.$clr-charcoal2;
-}
-
-
-.editor-wrapper {
-    flex: 1 1 50%;
-}
-
-.editor {
-    display: block;
-    width: 100%;
-    resize: none;
-}
-
-
-
-*/

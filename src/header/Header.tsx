@@ -17,7 +17,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
 
     }
 
-    function saveNotesChanges(evt: any) {
+    function saveNotesChanges() {
         console.log(changeTitle)
         props.data.map(item => {
             if (item.name === ID) {

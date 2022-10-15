@@ -11,7 +11,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: stretch;
     // gap: 1rem;
 }
 
@@ -90,8 +90,9 @@
     appearance: none;
     width: 100%;
     cursor: text;
-
-
+    font-weight: 400;
+    font-size: base.$fs-15;
+    font-family: base.$font-roboto-slab;
 }
 
 .show-doc-title {
