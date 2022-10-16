@@ -7,23 +7,29 @@ import Document from "../assets/icon-document.svg"
 import Button from './Button'
 
 function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean; data: DataTypes[] }) {
-    const { ID } = useContext(ContentContext)
-    const [changeTitle, setChangeTitle] = useState(ID)
+    const { ID, selectContent } = useContext(ContentContext)
+  
+    function handleChangeTitle(evt: { target: any }) {      
+        console.log(props.data)
+        selectContent?.(evt.target.value)
+    }
 
-    function handleChangeTitle(evt: { target: any }) {
-        console.log("handleChangeTitle")
-         console.log(props.data)
-        setChangeTitle(evt.target.value)
-
+    function handleDeleteDocument() {
+        console.log(ID)
+        console.log(props.data)
+        const targetItem = props.data.find(item => {
+            console.log(`name - ${item.name} id - ${ID}`)
+        })
+        console.log(targetItem)
     }
 
     function saveNotesChanges() {
-        console.log(changeTitle)
+        console.log(ID)
         props.data.map(item => {
             if (item.name === ID) {
-             return   {                
+                return {
                     ...item,
-                    name: changeTitle
+                    name: ID
                 }
 
             }
@@ -35,7 +41,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
     }
 
     useEffect(() => {
-        setChangeTitle(ID)
+        selectContent?.(ID)
     }, [ID])
 
     return (
@@ -54,13 +60,14 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                                 name="document-title"
                                 id="document-title"
                                 onChange={handleChangeTitle}
-                                value={changeTitle}
+                                value={ID}
                                 placeholder="Document title"
                                 className="document-title" />
                         </label>
                     </div>
                     <div className="maintenance">
-                        <button className="btn btn-delete">
+                        <button className="btn btn-delete"
+                            onClick={handleDeleteDocument}>
                             <img src={DeleteRecord} alt="" />
                             <span className="sr-only">Delete a record</span>
                         </button>

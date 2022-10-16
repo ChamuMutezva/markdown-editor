@@ -1,8 +1,9 @@
 import React, { createContext, useState } from 'react'
 import { ContentTypes } from './Types'
+import Data from '../assets/data.json'
 
 const defaultState = {
-    ID: 'readme.md',
+    ID: Data[0].name,
 }
 
 export const ContentContext = createContext<ContentTypes>(defaultState)

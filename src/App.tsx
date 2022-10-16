@@ -6,13 +6,13 @@ import { useContext } from 'react'
 import Header from './header/Header'
 import MainComponent from './main/MainComponent'
 import AsideNav from './aside/AsideNav'
-import { ContentProvider } from './context/ContentContext'
+import {  ContentProvider } from './context/ContentContext'
 import { DataContext } from './context/Context'
 import Data from './assets/data.json'
 import { DataTypes } from './context/Types'
 
 function App() {
-  const { theme } = useContext(DataContext)
+  const { theme } = useContext(DataContext)  
   const [toggleMenu, setToggleMenu] = useState(false)
   const [data, setData] = useState(Data)
   const [docs, setDocs] = useState([{}])
@@ -29,6 +29,10 @@ function App() {
       createdAt: "15-10-2022"
     }
     setData(data.concat(docObject))
+  }
+
+  function handleDelete() {
+    console.log("delete element")
   }
 
   useEffect(() => {

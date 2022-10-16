@@ -1,10 +1,12 @@
 import NavList from './NavList'
 import { DataTypes } from '../context/Types';
 
-function AsideNav(props: { expand: boolean; data: DataTypes[], handleAdd: any }) {
+function AsideNav(props: {
+  handleAdd: any; expand: boolean; data: DataTypes[]; 
+}) {
   return (
     <>
-        <NavList expand={props.expand} data={props.data} handleAdd={props.handleAdd}/>       
+      <NavList expand={props.expand} data={props.data} handleAdd={props.handleAdd} />
     </>
   )
 }
