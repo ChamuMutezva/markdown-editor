@@ -8,23 +8,20 @@
 }
 
 .btn-save {
+    @include utils.flex();
     background: base.$clr-orange-med;
     padding: 0.7rem;
     border-radius: 5px;
 
     @include utils.mQ(45rem) {
         min-width: 10rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 0.5rem;
     }
 }
 
-.btn-preview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.btn-preview,
+.menu-btn-js {
+    @include utils.flex();
 }
 
 .btn-add-document {
@@ -43,12 +40,6 @@
         font-weight: 400;
         font-family: base.$font-commissioner;
     }
-}
-
-.menu-btn-js {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .hide-icon-js {

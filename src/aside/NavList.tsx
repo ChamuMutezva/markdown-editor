@@ -3,10 +3,16 @@ import NavListItem from './NavListItem'
 import ThemeControl from './ThemeControl'
 import { DataTypes } from '../context/Types';
 
-function NavList(props: { data: DataTypes[]; expand: boolean }) {
+function NavList(props: { data: DataTypes[]; expand: boolean ; handleAdd: any}) {
     function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
         console.log(evt)
+        const docObject: DataTypes = {
+            name: "document12",
+            content: "# new document",
+            createdAt: "15-10-2022"
+        }
     }
+
     const dataList = props.data.map(item => <NavListItem key={item.name} name={item.name} date={item.createdAt}
         content={item.content} datum={props.data} />)
 
@@ -17,7 +23,7 @@ function NavList(props: { data: DataTypes[]; expand: boolean }) {
             <h2 className="aside-main-title">Markdown</h2>
             <h3 className="aside-secondary-title">My Documents</h3>
             <button className="btn btn-add-document"
-                onClick={handleBtnAddDoc}>
+                onClick={props.handleAdd}>
                 + New Document
             </button>
             <ul className="navbar-nav flex">

@@ -24,11 +24,10 @@
 }
 
 .preview-toggle {
+    @include utils.flex();
+    justify-content: space-between;
     flex: 1 1 50%;
     background-color: base.$clr-off-white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-block: 0.75rem;
     padding-inline: 1rem;
 }
@@ -76,10 +75,11 @@ form {
 }
 
 .result h1 {
+    //  @include utils.headings();
+    font-family: base.$font-roboto-slab;
     font-size: base.$fs-32;
     font-weight: 700;
     color: base.$clr-charcoal2;
-    font-family: base.$font-roboto-slab;
 }
 
 .result h2 {
@@ -173,5 +173,21 @@ blockquote {
         top: 0;
         left: 0;
         background-color: base.$clr-orange-med;
+    }
+}
+
+.markdown-write {
+    position: relative;
+
+    @include utils.mQ(45rem) {
+        &::before {
+            width: 1px;
+            position: absolute;
+            height: 100%;
+            content: "";
+            background: base.$clr-very-light-grey;
+            left: 50%;
+            top: 0;
+        }
     }
 }

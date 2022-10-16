@@ -4,3 +4,15 @@
         @content;
     }
 }
+
+@mixin flex() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin headings() {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: base.$headingColor;
+}
