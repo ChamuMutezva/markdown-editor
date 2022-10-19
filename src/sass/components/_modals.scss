@@ -19,14 +19,21 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 1.5rem;
-    padding: .5rem;
-    border-radius: 10px;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.modal-heading {
+    font-family: base.$font-roboto-slab;
+    font-size: base.$fs-20;
+    font-weight: 700;
+    color: base.$clr-charcoal2;
 }
 
 .modal-text {
-    text-align: center;
+    color: base.$clr-text-grey;
 }
 
 .show-modal {
@@ -37,4 +44,16 @@
 
 .modal-text-ID {
     color: base.$clr-orange-med;
+}
+
+.btn-confirm-delete {
+    width: 100%;
+    text-align: center;
+    padding-block: 1rem;
+    background-color: base.$clr-orange-med;
+    color: base.$clr-white;
+    border: transparent;
+    border-radius: 4px;
+    font-weight: 400;
+    font-family: base.$font-roboto-mono;
 }

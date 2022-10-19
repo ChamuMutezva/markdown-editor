@@ -25,15 +25,20 @@ function App() {
     setToggleMenu(!toggleMenu)
   }
 
-  function handleDeleteDocument() {       
+  function handleDeleteDocument() {
     console.log(ID)
     console.log(data)
     setDeleteModal(!deleteModal)
     const targetItem = data.find(item => {
-        console.log(`name - ${item.name} id - ${ID}`)
+      console.log(`name - ${item.name} id - ${ID}`)
     })
     console.log(targetItem)
-}
+  }
+
+  function handleConfirmDelete() {
+    console.log("confirm delete button")
+    setDeleteModal(!deleteModal)
+  }
 
   function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
     console.log(evt)
@@ -73,15 +78,18 @@ function App() {
 */
 
   return (
-    <div className={`app ${toggleMenu ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
-      
-        <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
-        <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
-          <Header handleClickMenuToggle={clickMenuToggle} deleteDocument={handleDeleteDocument} toggle={toggleMenu} data={data} />
-          <MainComponent data={data} />
-        </div>
-        <ConfirmDelete deleteModal={deleteModal}/>
-      
+    <div className={`app ${toggleMenu || deleteModal ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
+
+      <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
+      <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
+        <Header handleClickMenuToggle={clickMenuToggle}
+          deleteDocument={handleDeleteDocument}
+          toggle={toggleMenu} data={data} />
+        <MainComponent data={data} />
+      </div>
+      <ConfirmDelete deleteModal={deleteModal}
+        confirmDelete={handleConfirmDelete} />
+
     </div>
   )
 }
