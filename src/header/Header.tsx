@@ -6,23 +6,26 @@ import SaveNotes from '../assets/icon-save.svg'
 import Document from "../assets/icon-document.svg"
 import Button from './Button'
 
-function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean; data: DataTypes[] }) {
+function Header(props: {
+    handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean; data: DataTypes[],
+    deleteDocument: React.MouseEventHandler<HTMLButtonElement>
+}) {
     const { ID, selectContent } = useContext(ContentContext)
-  
-    function handleChangeTitle(evt: { target: any }) {      
+
+    function handleChangeTitle(evt: { target: any }) {
         console.log(props.data)
         selectContent?.(evt.target.value)
     }
-
-    function handleDeleteDocument() {
-        console.log(ID)
-        console.log(props.data)
-        const targetItem = props.data.find(item => {
-            console.log(`name - ${item.name} id - ${ID}`)
-        })
-        console.log(targetItem)
-    }
-
+    /*
+        function handleDeleteDocument() {       
+            console.log(ID)
+            console.log(props.data)
+            const targetItem = props.data.find(item => {
+                console.log(`name - ${item.name} id - ${ID}`)
+            })
+            console.log(targetItem)
+        }
+    */
     function saveNotesChanges() {
         console.log(ID)
         props.data.map(item => {
@@ -48,7 +51,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
         <header className="header">
             <div className="top-menu">
                 <nav className="nav">
-                    <Button click={props.click} expand={props.toggle} />
+                    <Button click={props.handleClickMenuToggle} expand={props.toggle} />
                 </nav>
 
                 <div className="current-file">
@@ -67,7 +70,7 @@ function Header(props: { click: React.MouseEventHandler<HTMLButtonElement>; togg
                     </div>
                     <div className="maintenance">
                         <button className="btn btn-delete"
-                            onClick={handleDeleteDocument}>
+                            onClick={props.deleteDocument}>
                             <img src={DeleteRecord} alt="" />
                             <span className="sr-only">Delete a record</span>
                         </button>

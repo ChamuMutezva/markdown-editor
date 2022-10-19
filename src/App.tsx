@@ -1,32 +1,47 @@
 import { useState, useEffect } from 'react'
-import * as Realm from 'realm-web'
+import { nanoid } from 'nanoid'
+// import * as Realm from 'realm-web'
 //import './css/main.css'
 import './sass/main.scss'
 import { useContext } from 'react'
 import Header from './header/Header'
 import MainComponent from './main/MainComponent'
 import AsideNav from './aside/AsideNav'
-import {  ContentProvider } from './context/ContentContext'
+import ConfirmDelete from './main/ConfirmDelete'
+import { ContentContext } from './context/ContentContext'
 import { DataContext } from './context/Context'
 import Data from './assets/data.json'
 import { DataTypes } from './context/Types'
 
 function App() {
-  const { theme } = useContext(DataContext)  
+  const { theme } = useContext(DataContext)
+  const { ID } = useContext(ContentContext)
   const [toggleMenu, setToggleMenu] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false)
   const [data, setData] = useState(Data)
-  const [docs, setDocs] = useState([{}])
+  // const [docs, setDocs] = useState([{}])
 
-  function clickMenu() {
+  function clickMenuToggle() {
     setToggleMenu(!toggleMenu)
   }
 
+  function handleDeleteDocument() {       
+    console.log(ID)
+    console.log(data)
+    setDeleteModal(!deleteModal)
+    const targetItem = data.find(item => {
+        console.log(`name - ${item.name} id - ${ID}`)
+    })
+    console.log(targetItem)
+}
+
   function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
     console.log(evt)
+    const current = new Date()
     const docObject: DataTypes = {
-      name: "document12",
+      name: `document ${nanoid()}`,
       content: "# new document",
-      createdAt: "15-10-2022"
+      createdAt: `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`
     }
     setData(data.concat(docObject))
   }
@@ -59,13 +74,14 @@ function App() {
 
   return (
     <div className={`app ${toggleMenu ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
-      <ContentProvider>
+      
         <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
         <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
-          <Header click={clickMenu} toggle={toggleMenu} data={data} />
+          <Header handleClickMenuToggle={clickMenuToggle} deleteDocument={handleDeleteDocument} toggle={toggleMenu} data={data} />
           <MainComponent data={data} />
         </div>
-      </ContentProvider>
+        <ConfirmDelete deleteModal={deleteModal}/>
+      
     </div>
   )
 }
