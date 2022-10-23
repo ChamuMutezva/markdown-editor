@@ -5,9 +5,9 @@ const  defaultState = {
     theme: false,
 }
 
-export const DataContext = createContext<ThemeTypes>(defaultState)
+export const ThemeContext = createContext<ThemeTypes>(defaultState)
 
-export const DataProvider = (props: { children: any }) => {   
+export const ThemeProvider = (props: { children: any }) => {   
     const [theme, setTheme] = useState(defaultState.theme)
    
     function onChangeTheme() {
@@ -15,8 +15,8 @@ export const DataProvider = (props: { children: any }) => {
     }
 
     return (
-        <DataContext.Provider value={{ theme, onChangeTheme }}>
+        <ThemeContext.Provider value={{ theme, onChangeTheme }}>
             {props.children}
-        </DataContext.Provider>
+        </ThemeContext.Provider>
     )
 }

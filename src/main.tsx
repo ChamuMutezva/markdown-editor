@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { DataProvider } from './context/Context'
+import { ThemeProvider } from './context/ThemeContext'
 import { ContentProvider } from './context/ContentContext'
 import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <DataProvider>
+    <ThemeProvider>
       <ContentProvider>
         <App />
       </ContentProvider>
-    </DataProvider>
+    </ThemeProvider>
   </React.StrictMode>
 )

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import LightMode from "../assets/icon-light-mode.svg"
 import DarkMode from "../assets/icon-dark-mode.svg"
-import { DataContext } from '../context/Context'
+import { ThemeContext } from '../context/ThemeContext'
 function ThemeControl() {
    
-    const { theme, onChangeTheme } = useContext(DataContext)
+    const { theme, onChangeTheme } = useContext(ThemeContext)
 
     const onChange = () => {
         onChangeTheme?.(theme)      

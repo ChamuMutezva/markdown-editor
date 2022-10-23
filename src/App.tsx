@@ -9,12 +9,12 @@ import MainComponent from './main/MainComponent'
 import AsideNav from './aside/AsideNav'
 import ConfirmDelete from './main/ConfirmDelete'
 import { ContentContext } from './context/ContentContext'
-import { DataContext } from './context/Context'
+import { ThemeContext } from './context/ThemeContext'
 import Data from './assets/data.json'
 import { DataTypes } from './context/Types'
 
 function App() {
-  const { theme } = useContext(DataContext)
+  const { theme } = useContext(ThemeContext)
   const { ID } = useContext(ContentContext)
   const [toggleMenu, setToggleMenu] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
