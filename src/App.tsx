@@ -51,10 +51,6 @@ function App() {
     setData(data.concat(docObject))
   }
 
-  function handleDelete() {
-    console.log("delete element")
-  }
-
   useEffect(() => {
     console.log(data)
   }, [data])
@@ -79,17 +75,17 @@ function App() {
 
   return (
     <div className={`app ${toggleMenu || deleteModal ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
-
+      {/*when toggleMenu or deleteModal set the app div to a max-height of 100vh to prevent scrolling*/}
       <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
       <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
         <Header handleClickMenuToggle={clickMenuToggle}
           deleteDocument={handleDeleteDocument}
-          toggle={toggleMenu} data={data} />
+          toggle={toggleMenu}
+          data={data} />
         <MainComponent data={data} />
       </div>
       <ConfirmDelete deleteModal={deleteModal}
         confirmDelete={handleConfirmDelete} />
-
     </div>
   )
 }

@@ -4,10 +4,13 @@ import { DataTypes } from '../context/Types'
 import DeleteRecord from '../assets/icon-delete.svg'
 import SaveNotes from '../assets/icon-save.svg'
 import Document from "../assets/icon-document.svg"
+import Logo from "../assets/logo.svg"
 import Button from './Button'
 
 function Header(props: {
-    handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>; toggle: boolean; data: DataTypes[],
+    handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>;
+    toggle: boolean;
+    data: DataTypes[],
     deleteDocument: React.MouseEventHandler<HTMLButtonElement>
 }) {
     const { ID, selectContent } = useContext(ContentContext)
@@ -51,11 +54,13 @@ function Header(props: {
         <header className="header">
             <div className="top-menu">
                 <nav className="nav">
-                    <Button click={props.handleClickMenuToggle} expand={props.toggle} />
+                    <Button click={props.handleClickMenuToggle}
+                        expand={props.toggle} />
                 </nav>
 
                 <div className="current-file">
                     <div className="file">
+                        <img className="logo-img" src={Logo} alt="" />
                         <img src={Document} alt="current document" />
                         <label className="document-title-wrapper">
                             <span className="sr-only show-doc-title">Document title</span>

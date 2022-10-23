@@ -67,7 +67,18 @@
 .document-title-wrapper {
     flex: 1 1 80%;
     max-width: 300px;
-
+    position: relative;
+    &::before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 2rem;
+       // background-color: red;
+        background-image: url("../../../assets/logo.svg");
+        background-repeat: no-repeat;
+        top: 0;
+        left: 2.5rem;
+    }
 }
 
 .document-title-wrapper input {
@@ -92,7 +103,7 @@
     cursor: text;
     font-weight: 400;
     font-size: base.$fs-15;
-    font-family: base.$font-roboto-slab;
+    font-family: base.$font-roboto-slab;    
 }
 
 .show-doc-title {
@@ -106,5 +117,12 @@
         margin-top: -1rem;
         overflow: hidden;
         clip: auto;
+    }
+}
+
+.logo-img {
+    display: none;
+    @include utils.mQ(61.25rem) {
+        display: block;
     }
 }
