@@ -19,6 +19,7 @@ function App() {
   const [toggleMenu, setToggleMenu] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
   const [data, setData] = useState([] as any[])
+  const [error, setError] = useState(null)
   // const [docs, setDocs] = useState([{}])
 
   function clickMenuToggle() {
@@ -47,7 +48,9 @@ function App() {
     setDeleteModal(!deleteModal)
   }
 
-  function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
+  const handleBtnAddDoc = async (evt: React.MouseEvent<HTMLElement>) => {
+
+    // create new  document 
     console.log(evt)
     const current = new Date()
     const docObject: DataTypes = {
@@ -55,13 +58,33 @@ function App() {
       content: "# new document",
       createdAt: `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`
     }
-    setData(data.concat(docObject))
+
+    const response = await fetch('http://localhost:4000/api/editor', {
+      method: 'POST',
+      body: JSON.stringify(docObject),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+
+    const json = await response.json()
+
+    if (!response.ok) {
+      setError(json.error)
+    }
+
+    if (response.ok) {
+      setError(null)
+      setData(data.concat(docObject))
+      console.log("new document added")
+    }
+
   }
 
-  useEffect(() => {   
-  
+  useEffect(() => {
+    // load data from mongo db
     const fetchFiles = async () => {
-      const response = await fetch('http://localhost:4000/api/editor' )
+      const response = await fetch('http://localhost:4000/api/editor')
       const json = await response.json()
       if (response.ok) {
         setData(json)
@@ -69,13 +92,9 @@ function App() {
     }
     console.log(data)
     fetchFiles()
-  }, [])
-
-  useEffect(() => {
-    console.log(data)
   }, [data])
 
-    return (
+  return (
     <div className={`app ${toggleMenu || deleteModal ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
       {/*when toggleMenu or deleteModal set the app div to a max-height of 100vh to prevent scrolling*/}
 
