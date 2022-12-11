@@ -1,6 +1,8 @@
 import React from 'react'
 import IconClose from '../assets/icon-close.svg'
 import MenuIcon from '../assets/icon-menu.svg'
+
+// open and close the menu button to toggle the available list of files/documents
 function Button(props: { click: React.MouseEventHandler<HTMLButtonElement>; expand: boolean }) {
     return (
         <button

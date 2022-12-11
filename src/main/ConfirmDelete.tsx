@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
 import { ContentContext } from '../context/ContentContext'
+import IconClose from '../assets/icon-close.svg'
 
 function ConfirmDelete(props: {
+    exitWithoutDeleting: React.MouseEventHandler<HTMLButtonElement>;
     deleteModal: boolean;
     confirmDelete: React.MouseEventHandler<HTMLButtonElement>
 }) {
@@ -9,6 +11,10 @@ function ConfirmDelete(props: {
     return (
         <div className={`modal-wrapper ${props.deleteModal ? "show-modal" : ""} `}>
             <div className='delete-confirmation'>
+                <button className='delete-close' onClick={props.exitWithoutDeleting}>
+                    <img src={IconClose} alt="Close without deleting page" />
+                </button>
+
                 <h4 className="modal-heading">Delete this document?</h4>
                 <p className="modal-text">
                     Are you sure you want to delete the <span className="modal-text-ID">{ID}</span> document

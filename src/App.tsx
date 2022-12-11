@@ -18,7 +18,7 @@ function App() {
   const { ID } = useContext(ContentContext)
   const [toggleMenu, setToggleMenu] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
-  const [data, setData] = useState(Data)
+  const [data, setData] = useState([] as any[])
   // const [docs, setDocs] = useState([{}])
 
   function clickMenuToggle() {
@@ -29,14 +29,21 @@ function App() {
     console.log(ID)
     console.log(data)
     setDeleteModal(!deleteModal)
-    const targetItem = data.find(item => {
-      console.log(`name - ${item.name} id - ${ID}`)
-    })
-    console.log(targetItem)
+    if (data !== null) {
+      const targetItem = data.find(item => {
+        console.log(`name - ${item.name} id - ${ID}`)
+      })
+    }
+    // console.log(targetItem)
   }
 
   function handleConfirmDelete() {
     console.log("confirm delete button")
+    setDeleteModal(!deleteModal)
+  }
+
+  function exitWithoutDeleting() {
+    console.log("exit without deleting")
     setDeleteModal(!deleteModal)
   }
 
@@ -51,41 +58,42 @@ function App() {
     setData(data.concat(docObject))
   }
 
+  useEffect(() => {   
+  
+    const fetchFiles = async () => {
+      const response = await fetch('http://localhost:4000/api/editor' )
+      const json = await response.json()
+      if (response.ok) {
+        setData(json)
+      }
+    }
+    console.log(data)
+    fetchFiles()
+  }, [])
+
   useEffect(() => {
     console.log(data)
   }, [data])
 
-  /*
-  useEffect(() => {
-    const fetchData = async () => {    
-      const app = new Realm.App({ id: "browser-docs-ioemy" });
-      const credentials = Realm.Credentials.anonymous();
-      try {
-        const user = await app.logIn(credentials);
-        const allDocs = await user.functions.getAllDocs()
-        setDocs(await allDocs)
-        console.log(docs)  
-      } catch (err) {        
-        console.error(err);
-      }
-    }
-    fetchData()
-  }, [])
-*/
-
-  return (
+    return (
     <div className={`app ${toggleMenu || deleteModal ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
       {/*when toggleMenu or deleteModal set the app div to a max-height of 100vh to prevent scrolling*/}
+
       <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
-      <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
-        <Header handleClickMenuToggle={clickMenuToggle}
-          deleteDocument={handleDeleteDocument}
-          toggle={toggleMenu}
-          data={data} />
-        <MainComponent data={data} />
-      </div>
-      <ConfirmDelete deleteModal={deleteModal}
-        confirmDelete={handleConfirmDelete} />
+      {data && data.length > 0 ? <>
+        <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
+          <Header handleClickMenuToggle={clickMenuToggle}
+            deleteDocument={handleDeleteDocument}
+            toggle={toggleMenu}
+            data={data} />
+          <MainComponent data={data} />
+        </div>
+
+        <ConfirmDelete deleteModal={deleteModal}
+          exitWithoutDeleting={exitWithoutDeleting}
+          confirmDelete={handleConfirmDelete} />
+      </> : <p>no data yet</p>
+      }
     </div>
   )
 }
