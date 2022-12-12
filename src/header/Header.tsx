@@ -8,6 +8,7 @@ import Logo from "../assets/logo.svg"
 import Button from './Button'
 
 function Header(props: {
+    saveNewChanges: React.MouseEventHandler<HTMLButtonElement>;
     handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>;
     toggle: boolean;
     data: DataTypes[],
@@ -29,6 +30,8 @@ function Header(props: {
             console.log(targetItem)
         }
     */
+
+    /*
     function saveNotesChanges() {
         console.log(ID)
         props.data.map(item => {
@@ -41,10 +44,12 @@ function Header(props: {
             }
             return item
         })
-        // TODO: Get id value from input field and save it in CONST changeTitle
-        // TODO: Find the current data that has been edited or with title to be changed
-        // TODO: Use destructuring to update data
     }
+    */
+    // TODO: Get id value from input field and save it in CONST changeTitle
+    // TODO: Find the current data that has been edited or with title to be changed
+    // TODO: Use destructuring to update data
+
 
     useEffect(() => {
         selectContent?.(ID)
@@ -80,7 +85,7 @@ function Header(props: {
                             <span className="sr-only">Delete a record</span>
                         </button>
                         <button className="btn btn-save"
-                            onClick={saveNotesChanges}>
+                            onClick={props.saveNewChanges}>
                             <img src={SaveNotes} alt="" />
                             <span className="sr-only show-btn-text">Save changes</span>
                         </button>

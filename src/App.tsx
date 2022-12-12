@@ -48,9 +48,19 @@ function App() {
     setDeleteModal(!deleteModal)
   }
 
-  const handleBtnAddDoc = async (evt: React.MouseEvent<HTMLElement>) => {
+  const saveNewChanges = async (evt: React.MouseEvent<HTMLElement>) => {
+    console.log(evt)
+  /*  const response = await fetch(`http://localhost:4000/api/editor/${}`, {
+      method: 'PATCH',
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }) */
+  }
 
-    // create new  document 
+  const handleBtnAddDoc = async (evt: React.MouseEvent<HTMLElement>) => {
+    // create and add new  document 
     console.log(evt)
     const current = new Date()
     const docObject: DataTypes = {
@@ -92,7 +102,7 @@ function App() {
     }
     console.log(data)
     fetchFiles()
-  }, [data])
+  }, [])
 
   return (
     <div className={`app ${toggleMenu || deleteModal ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
@@ -102,6 +112,7 @@ function App() {
       {data && data.length > 0 ? <>
         <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
           <Header handleClickMenuToggle={clickMenuToggle}
+            saveNewChanges={saveNewChanges}
             deleteDocument={handleDeleteDocument}
             toggle={toggleMenu}
             data={data} />

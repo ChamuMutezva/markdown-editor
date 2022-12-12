@@ -2,14 +2,14 @@ import { useContext, useEffect } from "react";
 import { ContentContext } from "../context/ContentContext";
 import { DataTypes } from "../context/Types"
 
-function NavListItem(props: { name: string; date: string; content: string; datum: DataTypes[] }) {
+function NavListItem(props: { name: string; date: string; content: string; _id: string; datum: DataTypes[] }) {
     const { ID, selectContent } = useContext(ContentContext)
 
     function handleBtnClick(id: string) {
         if (id !== ID) {
             selectContent?.(id)
-            console.log(ID)
-            props.datum.map(item => console.log(item.name))
+           // console.log(ID)
+            //props.datum.map(item => console.log(item._id))
         }
     }
 

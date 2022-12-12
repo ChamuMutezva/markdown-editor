@@ -14,8 +14,13 @@ function NavList(props: { data: DataTypes[]; expand: boolean; handleAdd: any }) 
         }
     }
 */
-    const dataList = props.data.map(item => <NavListItem key={item.name} name={item.name} date={item.createdAt}
-        content={item.content} datum={props.data} />)
+    const dataList = props.data.map(item => <NavListItem
+        key={item.name}
+        name={item.name}
+        date={item.createdAt}
+        content={item.content}
+        _id={item._id!}
+        datum={props.data} />)
 
     return (
         <aside className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
