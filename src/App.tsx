@@ -12,6 +12,7 @@ import { ContentContext } from './context/ContentContext'
 import { ThemeContext } from './context/ThemeContext'
 import Data from './assets/data.json'
 import { DataTypes } from './context/Types'
+import { API_ENDPOINT_PATH } from './config'
 
 function App() {
   const { theme } = useContext(ThemeContext)
@@ -69,7 +70,7 @@ function App() {
       createdAt: `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`
     }
 
-    const response = await fetch('http://localhost:4000/api/editor', {
+    const response = await fetch(`${API_ENDPOINT_PATH}`, {
       method: 'POST',
       body: JSON.stringify(docObject),
       headers: {
@@ -94,7 +95,7 @@ function App() {
   useEffect(() => {
     // load data from mongo db
     const fetchFiles = async () => {
-      const response = await fetch('http://localhost:4000/api/editor')
+      const response = await fetch(`${API_ENDPOINT_PATH}`)
       const json = await response.json()
       if (response.ok) {
         setData(json)
