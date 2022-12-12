@@ -11,6 +11,7 @@
     "sass": "sass src/sass:src/css --watch --no-source-map"
   },
   "dependencies": {
+    "@aws-amplify/cli": "^10.5.2",
     "nanoid": "^4.0.0",
     "netlify-cli": "^12.0.0",
     "react": "^18.2.0",
