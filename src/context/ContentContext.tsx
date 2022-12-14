@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react'
 import { ContentTypes } from './Types'
-import Data from '../assets/data.json'
+//import Data from '../assets/data.json'
 
 const defaultState = {
     // ID: Data[0].name,   // todo: data is being obtained from json file 
@@ -12,14 +12,16 @@ export const ContentContext = createContext<ContentTypes>(defaultState)
 
 export const ContentProvider = (props: { children: any }) => {
     const [ID, setNewID] = useState(defaultState.ID)
-
-    function selectContent(id: React.SetStateAction<string>) {
+    const [title, setTitle] = useState('Welcome.md')
+    const [markdownContent, setMarkdownContent] = useState('')
+    
+    function changeContent(id: React.SetStateAction<string>) {
+        // id is used to control the items to be viewed , when the id has changed so as the heading and content should change
         setNewID(id)
-       // console.log(ID)
     }
 
     return (
-        <ContentContext.Provider value={{ ID, selectContent }}>
+        <ContentContext.Provider value={{ ID, changeContent, title, setTitle, markdownContent, setMarkdownContent }}>
             {props.children}
         </ContentContext.Provider>
     )

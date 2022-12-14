@@ -16,7 +16,7 @@ import { API_ENDPOINT_PATH } from './config'
 
 function App() {
   const { theme } = useContext(ThemeContext)
-  const { ID } = useContext(ContentContext)
+  const { ID, title , changeContent, markdownContent } = useContext(ContentContext)
   const [toggleMenu, setToggleMenu] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false)
   const [data, setData] = useState([] as any[])
@@ -50,7 +50,7 @@ function App() {
   }
 
   const saveNewChanges = async (evt: React.MouseEvent<HTMLElement>) => {
-    console.log(evt)
+    console.log(ID)
     /* const response = await fetch(`${API_ENDPOINT_PATH}/${}`, {
        method: 'PATCH',
        body: JSON.stringify(data),
@@ -92,13 +92,14 @@ function App() {
 
   }
 
+  // Get data on load from mongodb
   useEffect(() => {
     // load data from mongo db
     const fetchFiles = async () => {
       const response = await fetch(`${API_ENDPOINT_PATH}`)
       const json = await response.json()
       if (response.ok) {
-        setData(json)
+        setData(json)      
       }
     }
     console.log(data)

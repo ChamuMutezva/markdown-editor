@@ -5,25 +5,24 @@ import { ContentContext } from '../context/ContentContext'
 import ShowPreview from '../assets/icon-show-preview.svg'
 import HidePreview from '../assets/icon-hide-preview.svg'
 import { DataTypes } from '../context/Types'
-//import data from '../assets/data.json'
-
 
 function MainComponent(props: { data: DataTypes[] }) {
 
-    const { ID } = useContext(ContentContext)
-    console.log(props.data)
+    const { ID, markdownContent, setMarkdownContent } = useContext(ContentContext)
+    //  console.log(props.data)
     const targetData = props.data && props.data.find((item: { name: string }) => item.name === ID)
-    // const targetData = props.data && props.data.find((item: { _id?: string }) => item._id === ID)
-    //console.log(targetData)
-    //console.log(ID)
-    const [content, setContent] = useState(props.data[1].content)
+    
+   // const [content, setContent] = useState(props.data[1].content)
     // const [content, setContent] = useState(targetData!.content) : causing error
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
+    useEffect(() => {
+        setMarkdownContent?.(props.data[1].content)
+    }, [])
 
-
-    function handleChange(evt: { target: { value: React.SetStateAction<string> } }) {
-        setContent(evt.target.value)
+    function handleChange(evt: { target: any }) {
+       // setContent(evt.target.value)
+        setMarkdownContent?.(evt.target.value)
     }
 
     function toggleMarkDown() {
@@ -33,7 +32,8 @@ function MainComponent(props: { data: DataTypes[] }) {
 
     useEffect(() => {
         if (targetData?.content !== undefined) {
-            setContent(targetData?.content)
+           // setContent(targetData?.content)
+            setMarkdownContent?.(targetData?.content)
         }
     }, [ID])
 
@@ -61,14 +61,14 @@ function MainComponent(props: { data: DataTypes[] }) {
                         <textarea name="markdown"
                             id="markdown-content"
                             className="markdown-content"
-                            value={content}
+                            value={markdownContent}
                             onChange={handleChange}>
                         </textarea>
                     </form>
                 </div>
                 <div className={`result ${markdownPreview ? "result-container" : ""}`}>
                     <MarkdownView
-                        markdown={content}
+                        markdown={markdownContent!}
                         options={{ tables: true, emoji: true }}
                     />
                 </div>
