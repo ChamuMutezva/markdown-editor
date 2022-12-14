@@ -30,6 +30,8 @@ function App() {
   function handleDeleteDocument() {
     console.log(ID)
     console.log(data)
+    const targetItem = data.find(item => item._id === ID)
+    console.log(targetItem)
     setDeleteModal(!deleteModal)
     if (data !== null) {
       const targetItem = data.find(item => {
