@@ -15,7 +15,7 @@ function NavListItem(props: { name: string; date: string; content: string; _id: 
             console.log(targetItem)
             changeContent?.(id)   
             setTitle?.(targetItem?.name!)  
-            setMarkdownContent?.(targetItem?.content)     
+            setMarkdownContent?.(targetItem?.content!)     
         }
     }
 
