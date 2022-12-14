@@ -14,6 +14,7 @@ function NavList(props: { data: DataTypes[]; expand: boolean; handleAdd: any }) 
         }
     }
 */
+  //  console.log(props.data)
     const dataList = props.data.map(item => <NavListItem
         key={item.name}
         name={item.name}

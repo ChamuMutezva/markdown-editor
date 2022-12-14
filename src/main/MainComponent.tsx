@@ -11,10 +11,13 @@ import { DataTypes } from '../context/Types'
 function MainComponent(props: { data: DataTypes[] }) {
 
     const { ID } = useContext(ContentContext)
-  //  console.log(props.data)
+    console.log(props.data)
     const targetData = props.data && props.data.find((item: { name: string }) => item.name === ID)
-   // console.log(targetData)
+    // const targetData = props.data && props.data.find((item: { _id?: string }) => item._id === ID)
+    //console.log(targetData)
+    //console.log(ID)
     const [content, setContent] = useState(props.data[1].content)
+    // const [content, setContent] = useState(targetData!.content) : causing error
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
 

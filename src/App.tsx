@@ -51,13 +51,13 @@ function App() {
 
   const saveNewChanges = async (evt: React.MouseEvent<HTMLElement>) => {
     console.log(evt)
-  /*  const response = await fetch(`http://localhost:4000/api/editor/${}`, {
-      method: 'PATCH',
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }) */
+    /* const response = await fetch(`${API_ENDPOINT_PATH}/${}`, {
+       method: 'PATCH',
+       body: JSON.stringify(data),
+       headers: {
+         "Content-Type": "application/json"
+       }
+     }) */
   }
 
   const handleBtnAddDoc = async (evt: React.MouseEvent<HTMLElement>) => {
@@ -110,20 +110,22 @@ function App() {
       {/*when toggleMenu or deleteModal set the app div to a max-height of 100vh to prevent scrolling*/}
 
       <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
-      {data && data.length > 0 ? <>
-        <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
-          <Header handleClickMenuToggle={clickMenuToggle}
-            saveNewChanges={saveNewChanges}
-            deleteDocument={handleDeleteDocument}
-            toggle={toggleMenu}
-            data={data} />
-          <MainComponent data={data} />
-        </div>
+      {data && data.length > 0 ?
+        <>
+          <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
+            <Header handleClickMenuToggle={clickMenuToggle}
+              saveNewChanges={saveNewChanges}
+              deleteDocument={handleDeleteDocument}
+              toggle={toggleMenu}
+              data={data} />
+            <MainComponent data={data} />
+          </div>
 
-        <ConfirmDelete deleteModal={deleteModal}
-          exitWithoutDeleting={exitWithoutDeleting}
-          confirmDelete={handleConfirmDelete} />
-      </> : <p>no data yet</p>
+          <ConfirmDelete deleteModal={deleteModal}
+            exitWithoutDeleting={exitWithoutDeleting}
+            confirmDelete={handleConfirmDelete} />
+        </> :
+        <p>no data yet</p>
       }
     </div>
   )

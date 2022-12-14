@@ -13,11 +13,6 @@ function NavListItem(props: { name: string; date: string; content: string; _id: 
         }
     }
 
-   // useEffect(() => {
-       // const targetData = props.datum.find(target => ID === target.name)
-       // console.log(targetData)
-   // }, [ID])
-
     return (
         <li className="nav-item uppercase">
             <button className="nav-link ff-barlow text-white letter-spacing-2 fs-14"
