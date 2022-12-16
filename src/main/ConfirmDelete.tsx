@@ -7,7 +7,7 @@ function ConfirmDelete(props: {
     deleteModal: boolean;
     confirmDelete: React.MouseEventHandler<HTMLButtonElement>
 }) {
-    const { ID } = useContext(ContentContext)
+    const { ID , title} = useContext(ContentContext)
     return (
         <div className={`modal-wrapper ${props.deleteModal ? "show-modal" : ""} `}>
             <div className='delete-confirmation'>
@@ -17,7 +17,7 @@ function ConfirmDelete(props: {
 
                 <h4 className="modal-heading">Delete this document?</h4>
                 <p className="modal-text">
-                    Are you sure you want to delete the <span className="modal-text-ID">{ID}</span> document
+                    Are you sure you want to delete the <span className="modal-text-ID">{title}</span> document
                     and its contents? This action cannot be reversed.
                 </p>
                 <button className="btn-confirm-delete"

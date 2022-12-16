@@ -14,11 +14,12 @@ function Header(props: {
     data: DataTypes[],
     deleteDocument: React.MouseEventHandler<HTMLButtonElement>
 }) {
-    const { ID, selectContent } = useContext(ContentContext)
+    const { ID, changeContent , title, setTitle } = useContext(ContentContext)
 
     function handleChangeTitle(evt: { target: any }) {
-        console.log(props.data)
-        selectContent?.(evt.target.value)
+       // console.log(props.data)
+       // changeContent?.(evt.target.value)
+        setTitle?.(evt.target.value)
     }
     /*
         function handleDeleteDocument() {       
@@ -31,9 +32,9 @@ function Header(props: {
         }
     */
 
-    /*
-    function saveNotesChanges() {
-        console.log(ID)
+    
+   /* function saveNotesChanges() {
+        console.log(markdownContent)
         props.data.map(item => {
             if (item.name === ID) {
                 return {
@@ -43,16 +44,16 @@ function Header(props: {
 
             }
             return item
-        })
-    }
-    */
+        }) 
+    } */
+    
     // TODO: Get id value from input field and save it in CONST changeTitle
     // TODO: Find the current data that has been edited or with title to be changed
     // TODO: Use destructuring to update data
 
 
     useEffect(() => {
-        selectContent?.(ID)
+        changeContent?.(ID)
     }, [ID])
 
     return (
@@ -73,7 +74,7 @@ function Header(props: {
                                 name="document-title"
                                 id="document-title"
                                 onChange={handleChangeTitle}
-                                value={ID}
+                                value={title}
                                 placeholder="Document title"
                                 className="document-title" />
                         </label>

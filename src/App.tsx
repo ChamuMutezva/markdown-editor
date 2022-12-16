@@ -8,17 +8,19 @@ import Header from './header/Header'
 import MainComponent from './main/MainComponent'
 import AsideNav from './aside/AsideNav'
 import ConfirmDelete from './main/ConfirmDelete'
+import SaveNewChangesComponent from './main/SaveNewChanges'
 import { ContentContext } from './context/ContentContext'
 import { ThemeContext } from './context/ThemeContext'
-import Data from './assets/data.json'
+//import Data from './assets/data.json'
 import { DataTypes } from './context/Types'
 import { API_ENDPOINT_PATH } from './config'
 
 function App() {
   const { theme } = useContext(ThemeContext)
-  const { ID } = useContext(ContentContext)
+  const { ID, title, changeContent, markdownContent } = useContext(ContentContext)
   const [toggleMenu, setToggleMenu] = useState(false)
-  const [deleteModal, setDeleteModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false) // display delete-modal dialogue
+  const [saveEdits, setSaveEdits] = useState(false) // display save-edits dialogue
   const [data, setData] = useState([] as any[])
   const [error, setError] = useState(null)
   // const [docs, setDocs] = useState([{}])
@@ -27,21 +29,37 @@ function App() {
     setToggleMenu(!toggleMenu)
   }
 
+  // open delete modal , confirm to proceed deletion
   function handleDeleteDocument() {
-    console.log(ID)
-    console.log(data)
     setDeleteModal(!deleteModal)
-    if (data !== null) {
-      const targetItem = data.find(item => {
-        console.log(`name - ${item.name} id - ${ID}`)
-      })
-    }
-    // console.log(targetItem)
   }
 
-  function handleConfirmDelete() {
+  const handleConfirmDelete = async () => {
     console.log("confirm delete button")
-    setDeleteModal(!deleteModal)
+    // The data with the following ID's should not be removed 
+    if (ID === "634a235f414b8ab9c0b700e3" || ID === "634a235f414b8ab9c0b700e4") {
+      console.log("Do not delete this markdown content")
+      return setDeleteModal(!deleteModal)
+    } else {
+      const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
+        method: 'DELETE',
+      })
+
+      setDeleteModal(!deleteModal)
+      const remainingItems = data.filter(item => item._id !== ID)
+      const json = await response.json()
+      if (!response.ok) {
+        setError(json.error)
+      }
+
+      if (response.ok) {
+        setError(null)
+        setData(() => remainingItems)
+        changeContent?.(data[0]._id)
+        console.log("document removed")
+      }
+
+    }
   }
 
   function exitWithoutDeleting() {
@@ -49,17 +67,52 @@ function App() {
     setDeleteModal(!deleteModal)
   }
 
-  const saveNewChanges = async (evt: React.MouseEvent<HTMLElement>) => {
-    console.log(evt)
-    /* const response = await fetch(`${API_ENDPOINT_PATH}/${}`, {
-       method: 'PATCH',
-       body: JSON.stringify(data),
-       headers: {
-         "Content-Type": "application/json"
-       }
-     }) */
+  function exitWithoutSaving() {
+    console.log("exit without deleting")
+    setSaveEdits(!saveEdits)
   }
 
+  const confirmSaveNewChanges = async () => {
+    console.log(ID)
+    const targetItem = data.find(item => item._id === ID)
+
+    const { name, content } = targetItem
+    console.log(name)
+    console.log(content)
+    const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        ...targetItem,
+        name: title,
+        content: markdownContent
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+
+    })
+
+    const json = await response.json()
+
+    if (!response.ok) {
+      setError(json.error)
+    }
+
+    if (response.ok) {
+      setError(null)
+      console.log("document has been updated")
+    }
+    setSaveEdits(!saveEdits)
+  }
+
+  const saveNewChanges = async () => {
+    setSaveEdits(!saveEdits)
+
+  }
+
+  useEffect(() => {
+
+  }, [ID])
   const handleBtnAddDoc = async (evt: React.MouseEvent<HTMLElement>) => {
     // create and add new  document 
     console.log(evt)
@@ -92,6 +145,7 @@ function App() {
 
   }
 
+  // Get data on load from mongodb
   useEffect(() => {
     // load data from mongo db
     const fetchFiles = async () => {
@@ -102,6 +156,7 @@ function App() {
       }
     }
     console.log(data)
+    console.log(ID)
     fetchFiles()
   }, [])
 
@@ -120,7 +175,11 @@ function App() {
               data={data} />
             <MainComponent data={data} />
           </div>
-
+          <SaveNewChangesComponent
+            saveEdits={saveEdits}
+            exitWithoutSaving={exitWithoutSaving}
+            confirmSaveNewChanges={confirmSaveNewChanges}
+          />
           <ConfirmDelete deleteModal={deleteModal}
             exitWithoutDeleting={exitWithoutDeleting}
             confirmDelete={handleConfirmDelete} />
