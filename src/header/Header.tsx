@@ -18,7 +18,7 @@ function Header(props: {
 
     function handleChangeTitle(evt: { target: any }) {
        // console.log(props.data)
-        changeContent?.(evt.target.value)
+       // changeContent?.(evt.target.value)
         setTitle?.(evt.target.value)
     }
     /*

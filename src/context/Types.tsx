@@ -5,11 +5,11 @@ export interface ThemeTypes {
 
 export interface ContentTypes {
     ID: string;
+    changeContent?: (ID: string) => void;
     title?: string;
     setTitle?: (title: string) => void;
     markdownContent?: string;
     setMarkdownContent?: (markdownContent: string) => void;
-    changeContent?: (ID: string) => void
 }
 
 export interface DataTypes {
