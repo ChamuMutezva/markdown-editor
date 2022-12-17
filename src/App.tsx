@@ -148,6 +148,7 @@ function App() {
   // Get data on load from mongodb
   useEffect(() => {
     // load data from mongo db
+    console.log(API_ENDPOINT_PATH)
     const fetchFiles = async () => {
       const response = await fetch(`${API_ENDPOINT_PATH}`)
       const json = await response.json()
