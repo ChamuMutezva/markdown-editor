@@ -40,7 +40,7 @@ Users should be able to:
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Markdown Editor](https://markdown-editor-ckm.netlify.app/)
-- link live site [aws link](https://master.d1vvvi88g40rh8.amplifyapp.com)
+- link live site [aws link](https://.d3f1qjpgfbf286.amplifyapp.com/) 
 
 ## My process
 

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@aws-amplify/cli": "^10.5.2",
+    "aws-amplify": "^5.0.7",
     "nanoid": "^4.0.0",
     "netlify-cli": "^2.37.0",
     "react": "^18.2.0",
