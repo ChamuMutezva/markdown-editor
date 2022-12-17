@@ -150,7 +150,11 @@ function App() {
     // load data from mongo db
     console.log(API_ENDPOINT_PATH)
     const fetchFiles = async () => {
-      const response = await fetch(`${API_ENDPOINT_PATH}`)
+      const response = await fetch(`${API_ENDPOINT_PATH}`, {
+        headers: {
+          "Content-type": "application/json"
+        }
+      })
       const json = await response.json()
       if (response.ok) {
         setData(json)
