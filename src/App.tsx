@@ -152,7 +152,8 @@ function App() {
     const fetchFiles = async () => {
       const response = await fetch(`${API_ENDPOINT_PATH}`, {
         headers: {
-          "Content-type": "application/json"
+          "Content-type": "application/json",
+          Accept: 'application/json'
         }
       })
       const json = await response.json()
