@@ -23,8 +23,7 @@ function App() {
   const [saveEdits, setSaveEdits] = useState(false) // display save-edits dialogue
   const [data, setData] = useState([] as any[])
   const [error, setError] = useState(null)
-  // const [docs, setDocs] = useState([{}])
-
+ 
   function clickMenuToggle() {
     setToggleMenu(!toggleMenu)
   }
@@ -150,12 +149,7 @@ function App() {
     // load data from mongo db
     console.log(API_ENDPOINT_PATH)
     const fetchFiles = async () => {
-      const response = await fetch(`${API_ENDPOINT_PATH}`, {
-        headers: {
-          "Content-type": "application/json",
-          Accept: 'application/json'
-        }
-      })
+      const response = await fetch(`${API_ENDPOINT_PATH}`)
       const json = await response.json()
       if (response.ok) {
         setData(json)

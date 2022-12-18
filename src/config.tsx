@@ -1,4 +1,4 @@
-export const API_ENDPOINT_PATH = process.env.NODE_ENV !== 'production'
+export const API_ENDPOINT_PATH = process.env.REACT_APP_TYPE !== 'production'
   ? process.env.REACT_APP_API_URL || "http://localhost:4000/api/editor"
   : "https://dev.d3f1qjpgfbf286.amplifyapp.com/api/editor"
 

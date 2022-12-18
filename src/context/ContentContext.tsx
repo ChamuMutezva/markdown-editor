@@ -12,7 +12,7 @@ export const ContentContext = createContext<ContentTypes>(defaultState)
 export const ContentProvider = (props: { children: any }) => {
     
     const [ID, setNewID] = useState(defaultState.ID)
-    const [title, setTitle] = useState('Welcome.md')
+    const [title, setTitle] = useState('welcome.md')
     const [markdownContent, setMarkdownContent] = useState('')
    
     function changeContent(id: React.SetStateAction<string>) {
