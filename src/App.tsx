@@ -14,6 +14,7 @@ import { ThemeContext } from './context/ThemeContext'
 //import Data from './assets/data.json'
 import { DataTypes } from './context/Types'
 import { API_ENDPOINT_PATH } from './config'
+import NewDocAdded from './main/NewDocAdded'
 
 function App() {
   const { theme } = useContext(ThemeContext)
@@ -21,9 +22,10 @@ function App() {
   const [toggleMenu, setToggleMenu] = useState(false)
   const [deleteModal, setDeleteModal] = useState(false) // display delete-modal dialogue
   const [saveEdits, setSaveEdits] = useState(false) // display save-edits dialogue
+  const [createDoc, setCreateDoc] = useState(false) // display feedback - doc created
   const [data, setData] = useState([] as any[])
   const [error, setError] = useState(null)
- 
+
   function clickMenuToggle() {
     setToggleMenu(!toggleMenu)
   }
@@ -69,6 +71,10 @@ function App() {
   function exitWithoutSaving() {
     console.log("exit without deleting")
     setSaveEdits(!saveEdits)
+  }
+
+  function documentCreatedMethod() {
+    setCreateDoc(false)
   }
 
   const confirmSaveNewChanges = async () => {
@@ -139,6 +145,7 @@ function App() {
     if (response.ok) {
       setError(null)
       setData(data.concat(docObject))
+      setCreateDoc(true)
       console.log("new document added")
     }
 
@@ -182,7 +189,11 @@ function App() {
           />
           <ConfirmDelete deleteModal={deleteModal}
             exitWithoutDeleting={exitWithoutDeleting}
-            confirmDelete={handleConfirmDelete} />
+            confirmDelete={handleConfirmDelete}
+          />
+          <NewDocAdded createDoc={createDoc}
+            documentCreatedMethod={documentCreatedMethod}
+          />
         </> :
         <p>no data yet</p>
       }
