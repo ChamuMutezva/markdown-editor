@@ -165,7 +165,7 @@ function App() {
     console.log(data)
     console.log(ID)
     fetchFiles()
-  }, [])
+  }, [data.length])
 
   return (
     <div className={`app ${toggleMenu || deleteModal ? "app-max-height" : ""} ${theme ? "light-mode" : ""}`}>
