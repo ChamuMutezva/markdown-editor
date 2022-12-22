@@ -39,7 +39,7 @@
     justify-content: space-between;
     flex: 1 1 80%;
     background-color: base.$clr-almost-black;
-    padding-inline: 1rem;
+    padding-inline: 1.8rem;
     padding-block: 0.5rem;
 
     @include utils.mQ(45rem) {

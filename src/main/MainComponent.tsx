@@ -11,8 +11,8 @@ function MainComponent(props: { data: DataTypes[] }) {
     const { ID, markdownContent, setMarkdownContent } = useContext(ContentContext)
     //  console.log(props.data)
     const targetData = props.data && props.data.find((item: { name: string }) => item.name === ID)
-    
-   // const [content, setContent] = useState(props.data[1].content)
+
+    // const [content, setContent] = useState(props.data[1].content)
     // const [content, setContent] = useState(targetData!.content) : causing error
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
@@ -21,7 +21,7 @@ function MainComponent(props: { data: DataTypes[] }) {
     }, [])
 
     function handleChange(evt: { target: any }) {
-       // setContent(evt.target.value)
+        // setContent(evt.target.value)
         setMarkdownContent?.(evt.target.value)
     }
 
@@ -32,7 +32,7 @@ function MainComponent(props: { data: DataTypes[] }) {
 
     useEffect(() => {
         if (targetData?.content !== undefined) {
-           // setContent(targetData?.content)
+            // setContent(targetData?.content)
             setMarkdownContent?.(targetData?.content)
         }
     }, [ID])
@@ -40,11 +40,14 @@ function MainComponent(props: { data: DataTypes[] }) {
     return (
         <main className="main editor-container">
             <div className="preview-toggle">
-                <div className="markdown-selector">
-                    <p className="markdown-toggle-heading">
-                        {markdownPreview ? "Preview" : "Markdown"}
-                    </p>
-                </div>
+
+                <p className={`markdown-toggle-heading ${markdownPreview ? "hide-markdown-heading hide-markdown-preview" : ""}`}>
+                    Markdown
+                </p>
+                <p className={`markdown-toggle-heading ${markdownPreview ? "" : "hide-markdown-heading"}`}>
+                    Preview
+                </p>
+
                 <button
                     className="btn btn-preview"
                     onClick={toggleMarkDown}

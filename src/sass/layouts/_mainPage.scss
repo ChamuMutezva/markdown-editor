@@ -41,6 +41,19 @@
     letter-spacing: 2px;
 }
 
+.hide-markdown-heading {
+    display: none;
+    @include utils.mQ(45rem) {
+      display: block;
+    }
+}
+
+.hide-markdown-preview {
+    @include utils.mQ(45rem) {
+        display: none;
+      } 
+}
+
 ol li {
     list-style: decimal;
 }
