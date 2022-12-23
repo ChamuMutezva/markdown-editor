@@ -1,20 +1,11 @@
 import React from 'react'
+import FocusTrap from 'focus-trap-react';
 import NavListItem from './NavListItem'
 import ThemeControl from './ThemeControl'
 import { DataTypes } from '../context/Types';
 
 function NavList(props: { data: DataTypes[]; expand: boolean; handleAdd: any }) {
-    /*
-    function handleBtnAddDoc(evt: React.MouseEvent<HTMLElement>) {
-        console.log(evt)
-        const docObject: DataTypes = {
-            name: "document12",
-            content: "# new document",
-            createdAt: "15-10-2022"
-        }
-    }
-*/
-  //  console.log(props.data)
+
     const dataList = props.data.map(item => <NavListItem
         key={item.name}
         name={item.name}
@@ -24,9 +15,11 @@ function NavList(props: { data: DataTypes[]; expand: boolean; handleAdd: any }) 
         datum={props.data} />)
 
     return (
+
         <aside className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
             hidden={!props.expand}
             id="navbarSupportedContent"
+            aria-modal={true}
             role="menu">
             <h2 className="aside-main-title">Markdown</h2>
             <h3 className="aside-secondary-title">My Documents</h3>
@@ -39,6 +32,7 @@ function NavList(props: { data: DataTypes[]; expand: boolean; handleAdd: any }) 
             </ul>
             <ThemeControl />
         </aside>
+
     )
 }
 

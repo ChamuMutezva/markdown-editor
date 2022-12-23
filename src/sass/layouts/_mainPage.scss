@@ -13,11 +13,16 @@
     }
 }
 
+.result pre {
+   background-color: base.$clr-mid-grey2; 
+}
+
 .editor,
 .result {
     max-width: 42rem;
     margin-inline: auto;
-
+    background-color: base.$clr-charcoal2;
+    color: base.$clr-white;
     @include utils.mQ(45rem) {
         flex: 1 1 50%;
     }
@@ -27,7 +32,8 @@
     @include utils.flex();
     justify-content: space-between;
     flex: 1 1 50%;
-    background-color: base.$clr-off-white;
+    background-color: base.$clr-almost-black;
+    color: base.$clr-white;
     padding-block: 0.75rem;
     padding-inline: 1rem;
 }
@@ -43,15 +49,16 @@
 
 .hide-markdown-heading {
     display: none;
+
     @include utils.mQ(45rem) {
-      display: block;
+        display: block;
     }
 }
 
 .hide-markdown-preview {
     @include utils.mQ(45rem) {
         display: none;
-      } 
+    }
 }
 
 ol li {
@@ -79,7 +86,8 @@ form {
     font-family: base.$font-roboto-mono;
     font-weight: 400;
     font-size: base.$fs-14;
-    color: base.$clr-text-grey;
+    color: base.$clr-white;
+    background-color: base.$clr-charcoal2;
     letter-spacing: 2px;
     width: 100%;
     height: 100%;
@@ -92,32 +100,32 @@ form {
     font-family: base.$font-roboto-slab;
     font-size: base.$fs-32;
     font-weight: 700;
-    color: base.$clr-charcoal2;
+   // color: base.$clr-charcoal2;
 }
 
 .result h2 {
     font-size: base.$fs-28;
     font-weight: 300;
-    color: base.$clr-charcoal2;
+   // color: base.$clr-charcoal2;
 }
 
 .result h3 {
     font-size: base.$fs-24;
     font-weight: 700;
-    color: base.$clr-charcoal2;
+  //  color: base.$clr-charcoal2;
     padding-block: 1rem;
 }
 
 .result h4 {
     font-size: base.$fs-20;
     font-weight: 700;
-    color: base.$clr-charcoal2;
+   // color: base.$clr-charcoal2;
 }
 
 .result h5 {
     font-size: base.$fs-16;
     font-weight: 700;
-    color: base.$clr-charcoal2;
+   // color: base.$clr-charcoal2;
 }
 
 .result h6 {
@@ -137,7 +145,7 @@ pre {
     font-family: base.$font-roboto-slab;
     font-size: base.$fs-14;
     font-weight: 400;
-    color: base.$clr-text-grey;
+   // color: base.$clr-text-grey;
     line-height: 1.7;
 }
 
@@ -150,7 +158,7 @@ pre {
     top: 0;
     left: 0;
     padding-inline: 1rem;
-    background: base.$clr-white;
+  //  background: base.$clr-white;
     width: 100%;
 
     @include utils.mQ(45rem) {
@@ -167,7 +175,7 @@ pre {
 
 .result blockquote p {
     font-weight: 700;
-    color: base.$clr-almost-black;
+   color: base.$clr-almost-black;
 }
 
 blockquote {
@@ -203,4 +211,19 @@ blockquote {
             top: 0;
         }
     }
+}
+
+.main-page {
+    background-color: base.$clr-charcoal2;
+}
+
+.light-mode {
+
+    .main-page,
+    .result,
+    .markdown-content {
+        background-color: base.$clr-white;
+        color: base.$clr-charcoal2;
+    }
+
 }
