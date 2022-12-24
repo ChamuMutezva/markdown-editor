@@ -28,7 +28,9 @@ function App() {
 
   function clickMenuToggle() {
     setToggleMenu(!toggleMenu)
+    // console.log(theme)
   }
+
 
   // open delete modal , confirm to proceed deletion
   function handleDeleteDocument() {
@@ -117,7 +119,8 @@ function App() {
 
   useEffect(() => {
 
-  }, [ID])
+  }, [theme])
+
   const handleBtnAddDoc = async (evt: React.MouseEvent<HTMLElement>) => {
     // create and add new  document 
     console.log(evt)

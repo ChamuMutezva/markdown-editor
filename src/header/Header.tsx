@@ -14,43 +14,13 @@ function Header(props: {
     data: DataTypes[],
     deleteDocument: React.MouseEventHandler<HTMLButtonElement>
 }) {
-    const { ID, changeContent , title, setTitle } = useContext(ContentContext)
+    const { ID, changeContent, title, setTitle } = useContext(ContentContext)
 
     function handleChangeTitle(evt: { target: any }) {
-       // console.log(props.data)
-       // changeContent?.(evt.target.value)
+        // console.log(props.data)
+        // changeContent?.(evt.target.value)
         setTitle?.(evt.target.value)
     }
-    /*
-        function handleDeleteDocument() {       
-            console.log(ID)
-            console.log(props.data)
-            const targetItem = props.data.find(item => {
-                console.log(`name - ${item.name} id - ${ID}`)
-            })
-            console.log(targetItem)
-        }
-    */
-
-    
-   /* function saveNotesChanges() {
-        console.log(markdownContent)
-        props.data.map(item => {
-            if (item.name === ID) {
-                return {
-                    ...item,
-                    name: ID
-                }
-
-            }
-            return item
-        }) 
-    } */
-    
-    // TODO: Get id value from input field and save it in CONST changeTitle
-    // TODO: Find the current data that has been edited or with title to be changed
-    // TODO: Use destructuring to update data
-
 
     useEffect(() => {
         changeContent?.(ID)
@@ -80,15 +50,15 @@ function Header(props: {
                         </label>
                     </div>
                     <div className="maintenance">
-                        <button className="btn btn-delete"
-                            onClick={props.deleteDocument}>
-                            <img src={DeleteRecord} alt="" />
-                            <span className="sr-only">Delete a record</span>
-                        </button>
                         <button className="btn btn-save"
                             onClick={props.saveNewChanges}>
                             <img src={SaveNotes} alt="" />
                             <span className="sr-only show-btn-text">Save changes</span>
+                        </button>
+                        <button className="btn btn-delete"
+                            onClick={props.deleteDocument}>
+                            <img src={DeleteRecord} alt="" />
+                            <span className="sr-only">Delete a record</span>
                         </button>
                     </div>
                 </div>

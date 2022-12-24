@@ -25,7 +25,11 @@
     color: base.$clr-white;
     @include utils.mQ(45rem) {
         flex: 1 1 50%;
-    }
+    }    
+}
+
+.result a {
+    color: base.$clr-off-white;
 }
 
 .preview-toggle {
@@ -224,6 +228,10 @@ blockquote {
     .markdown-content {
         background-color: base.$clr-white;
         color: base.$clr-charcoal2;
+    }
+
+    .result a {
+        color: base.$clr-charcoal;
     }
 
 }

@@ -2,7 +2,7 @@ import  { createContext, useState, useEffect } from 'react'
 import { ThemeTypes } from './Types'
 
 const  defaultState = {
-    theme: false,
+    theme: true,
 }
 
 export const ThemeContext = createContext<ThemeTypes>(defaultState)
