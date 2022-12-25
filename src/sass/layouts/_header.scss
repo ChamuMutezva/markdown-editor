@@ -69,12 +69,13 @@
     flex: 1 1 80%;
     max-width: 300px;
     position: relative;
+
     &::before {
         position: absolute;
         content: "";
         height: 100%;
         width: 2rem;
-       // background-color: red;
+        // background-color: red;
         background-image: url("../../../assets/logo.svg");
         background-repeat: no-repeat;
         top: 0;
@@ -104,7 +105,7 @@
     cursor: text;
     font-weight: 400;
     font-size: base.$fs-15;
-    font-family: base.$font-roboto;    
+    font-family: base.$font-roboto;
 }
 
 .show-doc-title {
@@ -123,9 +124,15 @@
 
 .logo-img {
     display: none;
+
     @include utils.mQ(61.25rem) {
         display: block;
     }
+}
+
+.document-img,
+.notes-img {
+    object-fit: contain;
 }
 
 .light-mode {
@@ -133,4 +140,4 @@
         background-color: base.$clr-off-white;
         color: base.$clr-black;
     }
- }
+}

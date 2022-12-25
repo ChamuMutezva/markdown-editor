@@ -17,6 +17,8 @@ function Button(props: { click: React.MouseEventHandler<HTMLButtonElement>; expa
             aria-label="Toggle menu navigation">
             <img className={`menu-image ${props.expand ? "hide-icon-js" : ""}`}
                 src={MenuIcon}
+                width={18}
+                height={12}
                 alt="" />
             <img className={`close ${props.expand ? "" : "hide-icon-js"}`}
                 src={IconClose}

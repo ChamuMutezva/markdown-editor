@@ -61,6 +61,7 @@ function MainComponent(props: { data: DataTypes[] }) {
             <div className={`container ${markdownPreview ? "markdown-preview" : "markdown-write"}`}>
                 <div className={`editor ${markdownPreview ? "editor-form-container" : ""}`}>
                     <form>
+                        <label htmlFor="markdown-content" className='sr-only'>Markdown content</label>
                         <textarea name="markdown"
                             id="markdown-content"
                             className="markdown-content"

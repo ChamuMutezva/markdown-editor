@@ -26,11 +26,10 @@ function App() {
   const [data, setData] = useState([] as any[])
   const [error, setError] = useState(null)
 
+  //open the aside menu to show the list of docs or close
   function clickMenuToggle() {
-    setToggleMenu(!toggleMenu)
-    // console.log(theme)
+    setToggleMenu(!toggleMenu)   
   }
-
 
   // open delete modal , confirm to proceed deletion
   function handleDeleteDocument() {
