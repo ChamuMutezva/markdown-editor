@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { API_ENDPOINT_PATH } from '../config'
 
+// eslint-disable-next-line import/prefer-default-export
 export const useLoadData = () => {
     const [data, setData] = useState([] as any[])
     // Get data on load from mongodb

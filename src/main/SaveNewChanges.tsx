@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useContext } from 'react'
 import { ContentContext } from '../context/ContentContext'
 import IconClose from '../assets/icon-close.svg'
@@ -7,11 +8,11 @@ function SaveNewChangesComponent(props: {
     confirmSaveNewChanges: React.MouseEventHandler<HTMLButtonElement>,
     saveEdits: boolean
 }) {
-    const { ID, title } = useContext(ContentContext)
+    const { title } = useContext(ContentContext)
     return (
         <div className={`modal-wrapper ${props.saveEdits ? "show-modal" : ""} `}>
             <div className='delete-confirmation'>
-                <button className='delete-close' onClick={props.exitWithoutSaving} >
+                <button type='button' className='delete-close' onClick={props.exitWithoutSaving} >
                     <img src={IconClose} alt="Close without saving page" />
                 </button>
 
@@ -20,7 +21,7 @@ function SaveNewChangesComponent(props: {
                     Are you sure you want to save the edited <span className="modal-text-ID">{title}</span> document
                     and its contents? This action cannot be reversed.
                 </p>
-                <button className="btn-confirm-delete"
+                <button type='button'  className="btn-confirm-delete"
                     onClick={props.confirmSaveNewChanges}>
                     Save Edits
                 </button>

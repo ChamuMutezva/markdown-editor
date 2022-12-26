@@ -1,4 +1,5 @@
-import  { createContext, useState, useEffect } from 'react'
+/* eslint-disable react/destructuring-assignment */
+import  { createContext, useState } from 'react'
 import { ThemeTypes } from './Types'
 
 const  defaultState = {
@@ -7,7 +8,7 @@ const  defaultState = {
 
 export const ThemeContext = createContext<ThemeTypes>(defaultState)
 
-export const ThemeProvider = (props: { children: any }) => {   
+export function ThemeProvider(props: { children: any }) {   
     const [theme, setTheme] = useState(defaultState.theme)
    
     function onChangeTheme() {
@@ -15,7 +16,8 @@ export const ThemeProvider = (props: { children: any }) => {
     }
 
     return (
-        <ThemeContext.Provider value={{ theme, onChangeTheme }}>
+        // eslint-disable-next-line react/jsx-no-constructed-context-values, react/jsx-no-comment-textnodes
+        <ThemeContext.Provider value={{ theme, onChangeTheme }}>           
             {props.children}
         </ThemeContext.Provider>
     )

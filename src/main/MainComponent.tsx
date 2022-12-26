@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useContext, useState, useEffect } from 'react'
 import MarkdownView from 'react-showdown'
 import { ContentContext } from '../context/ContentContext'
@@ -49,6 +50,7 @@ function MainComponent(props: { data: DataTypes[] }) {
                 </p>
 
                 <button
+                type='button'
                     className="btn btn-preview"
                     onClick={toggleMarkDown}
                     aria-pressed={markdownPreview ? "true" : "false"}>
@@ -66,8 +68,7 @@ function MainComponent(props: { data: DataTypes[] }) {
                             id="markdown-content"
                             className="markdown-content"
                             value={markdownContent}
-                            onChange={handleChange}>
-                        </textarea>
+                            onChange={handleChange} />
                     </form>
                 </div>
                 <div className={`result ${markdownPreview ? "result-container" : ""}`}>

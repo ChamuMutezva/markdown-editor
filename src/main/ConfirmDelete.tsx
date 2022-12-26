@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useContext } from 'react'
 import { ContentContext } from '../context/ContentContext'
 import IconClose from '../assets/icon-close.svg'
@@ -7,11 +8,11 @@ function ConfirmDelete(props: {
     deleteModal: boolean;
     confirmDelete: React.MouseEventHandler<HTMLButtonElement>
 }) {
-    const { ID , title} = useContext(ContentContext)
+    const { title} = useContext(ContentContext)
     return (
         <div className={`modal-wrapper ${props.deleteModal ? "show-modal" : ""} `}>
             <div className='delete-confirmation'>
-                <button className='delete-close' onClick={props.exitWithoutDeleting}>
+                <button type='button' className='delete-close' onClick={props.exitWithoutDeleting}>
                     <img src={IconClose} alt="Close without deleting page" />
                 </button>
 
@@ -20,7 +21,7 @@ function ConfirmDelete(props: {
                     Are you sure you want to delete the <span className="modal-text-ID">{title}</span> document
                     and its contents? This action cannot be reversed.
                 </p>
-                <button className="btn-confirm-delete"
+                <button  type='button' className="btn-confirm-delete"
                     onClick={props.confirmDelete}>
                     Confirm & Delete
                 </button>

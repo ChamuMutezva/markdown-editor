@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { createContext, useEffect, useState } from 'react'
 import { ContentTypes } from './Types'
 // import { useLoadData } from '../component/LoadData'
@@ -9,7 +10,7 @@ const defaultState = {
 
 export const ContentContext = createContext<ContentTypes>(defaultState)
 
-export const ContentProvider = (props: { children: any }) => {
+export function ContentProvider(props: { children: any }) {
     
     const [ID, setNewID] = useState(defaultState.ID)
     const [title, setTitle] = useState('welcome.md')
@@ -26,7 +27,8 @@ export const ContentProvider = (props: { children: any }) => {
     }, [ID])
     
     return (
-        <ContentContext.Provider value={{ ID, changeContent, title, setTitle, markdownContent, setMarkdownContent }}>
+        // eslint-disable-next-line react/jsx-no-constructed-context-values, react/jsx-no-comment-textnodes
+        <ContentContext.Provider value={{ ID, changeContent, title, setTitle, markdownContent, setMarkdownContent }}>           
             {props.children}
         </ContentContext.Provider>
     )

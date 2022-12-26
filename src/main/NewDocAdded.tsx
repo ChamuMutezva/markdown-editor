@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react'
 
 function NewDocAdded(props: { createDoc: boolean; documentCreatedMethod: React.MouseEventHandler<HTMLButtonElement> }) {
@@ -8,7 +9,7 @@ function NewDocAdded(props: { createDoc: boolean; documentCreatedMethod: React.M
                 <p className="modal-text">
                     New document has been created and added to the database
                 </p>
-                <button className="btn-confirm-delete"
+                <button type='button' className="btn-confirm-delete"
                     onClick={props.documentCreatedMethod}>
                     Exit page
                 </button>
