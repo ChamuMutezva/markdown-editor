@@ -10,6 +10,8 @@ export interface ContentTypes {
     setTitle?: (title: string) => void;
     markdownContent?: string;
     setMarkdownContent?: (markdownContent: string) => void;
+    data?: any;
+    setData?: (data: any) => void;
 }
 
 export interface DataTypes {

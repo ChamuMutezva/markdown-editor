@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
+/* eslint-disable react/destructuring-assignment */
+import React, { useContext, useEffect } from "react";
 import { ContentContext } from "../context/ContentContext";
 import { DataTypes } from "../context/Types";
 import DeleteRecord from "../assets/icon-delete.svg";
@@ -11,6 +12,7 @@ function Header(props: {
   saveNewChanges: React.MouseEventHandler<HTMLButtonElement>;
   handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>;
   toggle: boolean;
+  // eslint-disable-next-line react/no-unused-prop-types
   data: DataTypes[];
   deleteDocument: React.MouseEventHandler<HTMLButtonElement>;
 }) {
@@ -62,7 +64,7 @@ function Header(props: {
             </label>
           </div>
           <div className="maintenance">
-            <button className="btn btn-save" onClick={props.saveNewChanges}>
+            <button type="button" className="btn btn-save" onClick={props.saveNewChanges}>
               <img
                 src={SaveNotes}
                 className="notes-img"
@@ -72,7 +74,7 @@ function Header(props: {
               />
               <span className="sr-only show-btn-text">Save changes</span>
             </button>
-            <button className="btn btn-delete" onClick={props.deleteDocument}>
+            <button type="button" className="btn btn-delete" onClick={props.deleteDocument}>
               <img src={DeleteRecord} width={18} height={20} alt="" />
               <span className="sr-only">Delete a record</span>
             </button>

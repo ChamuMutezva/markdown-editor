@@ -9,20 +9,13 @@ import { DataTypes } from '../context/Types'
 
 function MainComponent(props: { data: DataTypes[] }) {
 
-    const { ID, markdownContent, setMarkdownContent } = useContext(ContentContext)
-    //  console.log(props.data)
+    const { ID, markdownContent, setMarkdownContent } = useContext(ContentContext)    
     const targetData = props.data && props.data.find((item: { name: string }) => item.name === ID)
-
-    // const [content, setContent] = useState(props.data[1].content)
     // const [content, setContent] = useState(targetData!.content) : causing error
     const [markdownPreview, setMarkdownPreview] = useState(false)
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write");
-    useEffect(() => {
-        setMarkdownContent?.(props.data[1].content)
-    }, [])
-
-    function handleChange(evt: { target: any }) {
-        // setContent(evt.target.value)
+    
+    function handleChange(evt: { target: any }) {       
         setMarkdownContent?.(evt.target.value)
     }
 
@@ -32,8 +25,7 @@ function MainComponent(props: { data: DataTypes[] }) {
     }
 
     useEffect(() => {
-        if (targetData?.content !== undefined) {
-            // setContent(targetData?.content)
+        if (targetData?.content !== undefined) {            
             setMarkdownContent?.(targetData?.content)
         }
     }, [ID])
