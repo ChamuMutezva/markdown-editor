@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Watch } from "react-loader-spinner";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
 import { nanoid } from "nanoid";
@@ -21,7 +22,7 @@ function App() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false); // display delete-modal dialogue
   const [saveEdits, setSaveEdits] = useState(false); // display save-edits dialogue
-  const [createDoc, setCreateDoc] = useState(false); // display feedback - doc created  
+  const [createDoc, setCreateDoc] = useState(false); // display feedback - doc created
   const [, setError] = useState(null);
 
   // open the aside menu to show the list of docs or close
@@ -41,7 +42,6 @@ function App() {
       ID === "634a235f414b8ab9c0b700e4"
     ) {
       setDeleteModal(!deleteModal);
-     
     } else {
       const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
         method: "DELETE",
@@ -62,18 +62,18 @@ function App() {
         setData?.(() => remainingItems);
         // eslint-disable-next-line no-underscore-dangle
         changeContent?.(data[0]._id);
-       // console.log("document removed");
+        // console.log("document removed");
       }
     }
   };
 
   function exitWithoutDeleting() {
-   // console.log("exit without deleting");
+    // console.log("exit without deleting");
     setDeleteModal(!deleteModal);
   }
 
   function exitWithoutSaving() {
-   // console.log("exit without deleting");
+    // console.log("exit without deleting");
     setSaveEdits(!saveEdits);
   }
 
@@ -82,9 +82,8 @@ function App() {
   }
 
   const confirmSaveNewChanges = async () => {
-   
     const targetItem = data.find((item: { _id: string }) => item._id === ID);
-   //  const { name, content } = targetItem;   
+    //  const { name, content } = targetItem;
     const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -117,7 +116,7 @@ function App() {
   useEffect(() => {}, [theme]);
 
   const handleBtnAddDoc = async () => {
-    // create and add new  document    
+    // create and add new  document
     const current = new Date();
     const docObject: DataTypes = {
       name: `document ${nanoid()}`,
@@ -189,7 +188,9 @@ function App() {
           />
         </>
       ) : (
-        <p>no data yet</p>
+        <div className="loading-flex">
+          <Watch color="#00BFFF" height={200} width={200} />          
+        </div>
       )}
     </div>
   );

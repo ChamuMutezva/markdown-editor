@@ -17,7 +17,8 @@
     "nanoid": "^4.0.0",
     "netlify-cli": "^2.37.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",    
+    "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.3.4",
     "react-showdown": "^2.3.1",
     "react-toastify": "^9.1.1",
     "realm-web": "^1.7.1"
