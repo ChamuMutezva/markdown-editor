@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Watch } from "react-loader-spinner";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import {  toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { nanoid } from "nanoid";
 import "./sass/main.scss";
 import Header from "./header/Header";
@@ -41,6 +41,9 @@ function App() {
       ID === "634a235f414b8ab9c0b700e3" ||
       ID === "634a235f414b8ab9c0b700e4"
     ) {
+      toast.error(`The data with id ${ID} cannot be deleted. Admin protected`)
+      
+
       setDeleteModal(!deleteModal);
     } else {
       const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {

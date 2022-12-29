@@ -10,12 +10,13 @@
 .btn-save {
     @include utils.flex();
     background: base.$clr-orange-med;
-    padding: 0.7rem;
+    padding: 0.4rem;
     border-radius: 5px;
 
     @include utils.mQ(45rem) {
         min-width: 10rem;
         gap: 0.5rem;
+        padding: 0.7rem;
     }
 }
 
