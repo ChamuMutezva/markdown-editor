@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Watch } from "react-loader-spinner";
-import {  toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { nanoid } from "nanoid";
 import "./sass/main.scss";
@@ -41,9 +41,7 @@ function App() {
       ID === "634a235f414b8ab9c0b700e3" ||
       ID === "634a235f414b8ab9c0b700e4"
     ) {
-      toast.error(`The data with id ${ID} cannot be deleted. Admin protected`)
-      
-
+      toast.error(`The data with id ${ID} cannot be deleted. Admin protected`);
       setDeleteModal(!deleteModal);
     } else {
       const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
@@ -86,30 +84,39 @@ function App() {
 
   const confirmSaveNewChanges = async () => {
     const targetItem = data.find((item: { _id: string }) => item._id === ID);
-    //  const { name, content } = targetItem;
-    const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
-      method: "PATCH",
-      body: JSON.stringify({
-        ...targetItem,
-        name: title,
-        content: markdownContent,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    if (
+      ID === "634a235f414b8ab9c0b700e3" ||
+      ID === "634a235f414b8ab9c0b700e4"
+    ) {
+      toast.info(`The data with id ${ID} cannot be EDITED. Admin protected`);
+      exitWithoutSaving();
+    } else {
+      //  const { name, content } = targetItem;
+      const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          ...targetItem,
+          name: title,
+          content: markdownContent,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    const json = await response.json();
+      const json = await response.json();
 
-    if (!response.ok) {
-      setError(json.error);
+      if (!response.ok) {
+        setError(json.error);
+      }
+
+      if (response.ok) {
+        setError(null);
+        // console.log("document has been updated");
+      }
+      toast.info(`The data with id ${ID} has been EDITED.`);
+      setSaveEdits(!saveEdits);
     }
-
-    if (response.ok) {
-      setError(null);
-      // console.log("document has been updated");
-    }
-    setSaveEdits(!saveEdits);
   };
 
   const saveNewChanges = async () => {
@@ -192,7 +199,7 @@ function App() {
         </>
       ) : (
         <div className="loading-flex">
-          <Watch color="#00BFFF" height={200} width={200} />          
+          <Watch color="#00BFFF" height={200} width={200} />
         </div>
       )}
     </div>
