@@ -104,21 +104,16 @@ First we check the value of `process.env.NODE_ENV` if it is equal to `production
 See and listen to the video [How to deploy MERN App in 2 minutes | cyclic.sh | Heroku alternative](https://www.youtube.com/watch?v=IxdiZcxgsyc)
 
 
-
 ### Continued development
-
-
 
 ### Useful resources
 - [aws react tutorial setting](https://docs.amplify.aws/start/q/integration/react/) - a step by step guide for setting up AWS hosting using amplify
-
 
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
 - Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
 - Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
 
 ## Acknowledgments
 
