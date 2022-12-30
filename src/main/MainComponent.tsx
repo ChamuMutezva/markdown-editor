@@ -46,7 +46,7 @@ function MainComponent(props: { data: DataTypes[] }) {
                     className="btn btn-preview"
                     onClick={toggleMarkDown}
                     aria-pressed={markdownPreview ? "true" : "false"}>
-                    <img className={`${markdownPreview ? "" : "hide-markdown"}`}
+                    <img width={16} height={15} className={`${markdownPreview ? "" : "hide-markdown"}`}
                         src={markdownPreview ? HidePreview : ShowPreview}
                         alt="Show preview"
                     />

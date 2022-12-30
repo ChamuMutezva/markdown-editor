@@ -37,8 +37,7 @@ function NavList(props: {
         className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
         hidden={!props.expand}
         id="navbarSupportedContent"
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-        role="menu"
+         aria-labelledby="menu-button"     
       >
         <h2 className="aside-main-title">Markdown</h2>
         <h3 className="aside-secondary-title">My Documents</h3>
@@ -51,7 +50,7 @@ function NavList(props: {
         >
           + New Document
         </button>
-        <ul className="navbar-nav flex">{dataList}</ul>
+        <ul className="navbar-nav flex" role="menu">{dataList}</ul>
        
         <ThemeControl setExpand={props.setExpand()} />       
       </aside>
