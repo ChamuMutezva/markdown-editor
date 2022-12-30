@@ -223,8 +223,13 @@ blockquote {
 
 .loading-flex {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    gap: 1rem;
+    padding-inline: 1rem;
 }
 
 .light-mode {

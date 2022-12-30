@@ -11,6 +11,7 @@ export interface ContentTypes {
     markdownContent?: string;
     setMarkdownContent?: (markdownContent: string) => void;
     data?: any;
+    fetchStatus: string;
     setData?: (data: any) => void;
 }
 

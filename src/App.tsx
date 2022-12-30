@@ -17,8 +17,16 @@ import NewDocAdded from "./main/NewDocAdded";
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const { ID, title, changeContent, markdownContent, data, setData } =
-    useContext(ContentContext);
+  const {
+    ID,
+    title,
+    changeContent,
+    markdownContent,
+    data,
+    setData,
+    fetchStatus,
+  } = useContext(ContentContext);
+  const [timer, setTimer] = useState(0);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false); // display delete-modal dialogue
   const [saveEdits, setSaveEdits] = useState(false); // display save-edits dialogue
@@ -152,13 +160,24 @@ function App() {
     }
 
     if (response.ok) {
-      clickMenuToggle() 
+      clickMenuToggle();
       setError(null);
       setData?.(data.concat(docObject));
-      setCreateDoc(true);     
-    }   
-   
+      setCreateDoc(true);
+    }
   };
+
+  if (fetchStatus !== "success") {
+    // the timer , keeps track of the time it takes mongodb realm to
+    // present the data. On average the site is taking 5 seconds
+    // if the time exceeds 10 seconds - this can be a result of poor network
+    const fetchStatusTimer = setInterval(() => {
+      setTimer(() => timer + 1);
+      if (fetchStatus) {
+        clearInterval(fetchStatusTimer);
+      }
+    }, 1000);
+  }
 
   return (
     <div
@@ -166,7 +185,12 @@ function App() {
         theme ? "light-mode" : ""
       }`}
     >
-      <AsideNav expand={toggleMenu} setExpand={() => clickMenuToggle} data={data} handleAdd={handleBtnAddDoc} />
+      <AsideNav
+        expand={toggleMenu}
+        setExpand={() => clickMenuToggle}
+        data={data}
+        handleAdd={handleBtnAddDoc}
+      />
       {data && data.length > 0 ? (
         <>
           <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
@@ -201,7 +225,21 @@ function App() {
         </>
       ) : (
         <div className="loading-flex">
-          <Watch color="#00BFFF" height={200} width={200} />
+          {timer < 10 ? (
+            <div className="loading-flex">
+              <Watch color="#00BFFF" height={200} width={200} />
+              <p className="loading-flex-text">Loading... {timer} sec</p>
+            </div>
+          ) : (
+            <div className="loading-flex">
+              <Watch color="#00BFFF" height={200} width={200} />
+              <h2 className="loading-flex-title">
+                Loading has taken longer than expected{" "}
+              </h2>
+              <p className="loading-flex-text">Please check your network!</p>
+              <p>Or the site is restricted without permission</p>
+            </div>
+          )}
         </div>
       )}
     </div>

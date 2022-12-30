@@ -4,7 +4,8 @@ import { API_ENDPOINT_PATH } from '../config'
 import { ContentTypes } from './Types'
 
 const defaultState = {   
-    ID: '634a235f414b8ab9c0b700e3'
+    ID: '634a235f414b8ab9c0b700e3',
+    fetchStatus: 'string',
 }
 
 export const ContentContext = createContext<ContentTypes>(defaultState)
@@ -15,6 +16,7 @@ export function ContentProvider(props: { children: any }) {
     const [title, setTitle] = useState('')
     const [markdownContent, setMarkdownContent] = useState('')
     const [data, setData] =  useState([] as any[]);
+    const [fetchStatus, setFetchStatus] = useState("idle")
    
     function changeContent(id: React.SetStateAction<string>) {
         // id is used to control the items to be viewed , 
@@ -29,7 +31,8 @@ export function ContentProvider(props: { children: any }) {
       const response = await fetch(`${API_ENDPOINT_PATH}`);
       const json = await response.json();
       if (response.ok) {
-        setData(json);      
+        setData(json);  
+        setFetchStatus("success")    
       }
     };
   
@@ -48,7 +51,7 @@ export function ContentProvider(props: { children: any }) {
     
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values, react/jsx-no-comment-textnodes
-        <ContentContext.Provider value={{ ID, changeContent, title, setTitle, markdownContent, setMarkdownContent, data , setData}}>           
+        <ContentContext.Provider value={{ ID, changeContent, title, setTitle, markdownContent, setMarkdownContent, data , fetchStatus, setData}}>           
             {props.children}
         </ContentContext.Provider>
     )
