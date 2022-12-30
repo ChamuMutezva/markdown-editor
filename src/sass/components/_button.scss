@@ -5,6 +5,13 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+
+    &:focus,
+    &:hover {       
+        cursor: pointer;
+        outline: dashed currentColor;
+        outline-offset: 0.15em;
+    }
 }
 
 .btn-save {
@@ -53,4 +60,14 @@
     padding: .45rem;
     border-radius: 5px;
     align-self: flex-end;
+}
+
+.btn-close-toggle {
+    margin-block: 1rem;
+    color: base.$clr-white;
+  background-color: base.$clr-black;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  border-radius: 15px;
 }

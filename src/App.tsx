@@ -84,6 +84,8 @@ function App() {
 
   const confirmSaveNewChanges = async () => {
     const targetItem = data.find((item: { _id: string }) => item._id === ID);
+    // data with the following ID's should not be changed by users. Hence any attempt to
+    // alter them will be rejected.
     if (
       ID === "634a235f414b8ab9c0b700e3" ||
       ID === "634a235f414b8ab9c0b700e4"
@@ -112,7 +114,6 @@ function App() {
 
       if (response.ok) {
         setError(null);
-        // console.log("document has been updated");
       }
       toast.info(`The data with id ${ID} has been EDITED.`);
       setSaveEdits(!saveEdits);
@@ -126,7 +127,7 @@ function App() {
   useEffect(() => {}, [theme]);
 
   const handleBtnAddDoc = async () => {
-    // create and add new  document
+    // create and add new  document. Data template for any first time saved documents
     const current = new Date();
     const docObject: DataTypes = {
       name: `document ${nanoid()}`,
@@ -151,11 +152,12 @@ function App() {
     }
 
     if (response.ok) {
+      clickMenuToggle() 
       setError(null);
       setData?.(data.concat(docObject));
-      setCreateDoc(true);
-      // console.log("new document added");
-    }
+      setCreateDoc(true);     
+    }   
+   
   };
 
   return (
@@ -164,7 +166,7 @@ function App() {
         theme ? "light-mode" : ""
       }`}
     >
-      <AsideNav expand={toggleMenu} data={data} handleAdd={handleBtnAddDoc} />
+      <AsideNav expand={toggleMenu} setExpand={() => clickMenuToggle} data={data} handleAdd={handleBtnAddDoc} />
       {data && data.length > 0 ? (
         <>
           <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>

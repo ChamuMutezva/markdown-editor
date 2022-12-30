@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/destructuring-assignment */
+import React, { useEffect, useRef } from "react";
 import FocusTrap from "focus-trap-react";
 import NavListItem from "./NavListItem";
 import ThemeControl from "./ThemeControl";
@@ -8,37 +9,57 @@ function NavList(props: {
   data: DataTypes[];
   expand: boolean;
   handleAdd: any;
+  setExpand: any;
 }) {
+  const btnRef = useRef<HTMLButtonElement>(null);
+
   const dataList = props.data.map((item) => (
     <NavListItem
       key={item.name}
       name={item.name}
-      date={item.createdAt}
-      content={item.content}
+      date={item.createdAt}     
       _id={item._id!}
-      datum={props.data}
-      expand={props.expand}
+      datum={props.data} 
+      setExpand={props.setExpand()}    
     />
   ));
+  const handleToggle = () => {
+    props.setExpand(!props.expand);
+  };
+  useEffect(() => {
+    if (props.expand) {
+      btnRef.current?.focus();
+    }
+  }, [props.expand]);
 
   return (
-  
+    // eslint-disable-next-line react/jsx-no-comment-textnodes
+    <FocusTrap active={props.expand}>
       <aside
         className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
         hidden={!props.expand}
         id="navbarSupportedContent"
-        aria-modal={true}
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
         role="menu"
       >
         <h2 className="aside-main-title">Markdown</h2>
         <h3 className="aside-secondary-title">My Documents</h3>
-        <button className="btn btn-add-document" onClick={props.handleAdd}>
+        
+        <button
+          ref={btnRef}
+          type="button"
+          className="btn btn-add-document"
+          onClick={props.handleAdd}
+        >
           + New Document
         </button>
         <ul className="navbar-nav flex">{dataList}</ul>
-        <ThemeControl />
+        <button type="button" onClick={props.setExpand} className="btn btn-close-toggle">
+          Close Menu
+        </button>
+        <ThemeControl />       
       </aside>
-    
+    </FocusTrap>
   );
 }
 

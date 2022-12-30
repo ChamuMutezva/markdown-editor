@@ -2,13 +2,14 @@
 @use '../utils';
 
 .btn-theme-control {
-  position: absolute;
-  bottom: 1.5rem;
+  position: relative;
+  color: base.$clr-white;
   background-color: base.$clr-black;
   border: none;
   outline: none;
   padding: 1rem 4.5rem;
   border-radius: 15px;
+
 }
 
 .hide-theme-img {

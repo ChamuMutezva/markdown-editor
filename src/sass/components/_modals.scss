@@ -46,7 +46,8 @@
     color: base.$clr-orange-med;
 }
 
-.btn-confirm-delete {
+.btn-confirm-delete,
+.btn-confirm-exit {
     width: 100%;
     text-align: center;
     padding-block: 1rem;
@@ -56,4 +57,9 @@
     border-radius: 4px;
     font-weight: 400;
     font-family: base.$font-roboto-mono;
+
+    &:focus,
+    &:hover {
+               outline: dashed base.$clr-almost-black;       
+    }
 }
