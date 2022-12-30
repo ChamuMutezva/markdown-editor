@@ -23,9 +23,7 @@ function NavList(props: {
       setExpand={props.setExpand()}    
     />
   ));
-  const handleToggle = () => {
-    props.setExpand(!props.expand);
-  };
+ 
   useEffect(() => {
     if (props.expand) {
       btnRef.current?.focus();
@@ -54,10 +52,8 @@ function NavList(props: {
           + New Document
         </button>
         <ul className="navbar-nav flex">{dataList}</ul>
-        <button type="button" onClick={props.setExpand} className="btn btn-close-toggle">
-          Close Menu
-        </button>
-        <ThemeControl />       
+       
+        <ThemeControl setExpand={props.setExpand()} />       
       </aside>
     </FocusTrap>
   );

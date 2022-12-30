@@ -3,12 +3,14 @@ import LightMode from "../assets/icon-light-mode.svg"
 import DarkMode from "../assets/icon-dark-mode.svg"
 import { ThemeContext } from '../context/ThemeContext'
 
-function ThemeControl() {
+function ThemeControl(props: { setExpand: () => void }) {
 
     const { theme, onChangeTheme } = useContext(ThemeContext)
 
     const onChange = () => {
         onChangeTheme?.(theme)
+        // eslint-disable-next-line react/destructuring-assignment
+        props.setExpand()
     }
 
     return (
