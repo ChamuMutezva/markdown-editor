@@ -43,7 +43,7 @@ Users should be able to:
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Netlify URL: [Markdown Editor](https://markdown-editor-ckm.netlify.app/)
-- AWS URL [aws link](https://dev.d3f1qjpgfbf286.amplifyapp.com/) 
+- AWS URL [aws link](https://master.d2cqg052o5mvm6.amplifyapp.com/) 
 
 ## My process
 
