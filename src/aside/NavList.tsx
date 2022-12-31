@@ -39,7 +39,7 @@ function NavList(props: {
       >
         
         <h2 className="aside-main-title">Markdown</h2>
-        <h3 className="aside-secondary-title">My Documents</h3>
+        <h3 id="menu-list-title" className="aside-secondary-title">My Documents</h3>
 
         <button
           ref={btnRef}
@@ -52,7 +52,7 @@ function NavList(props: {
         <ul
           className="navbar-nav flex"
           id="navbarSupportedContent"
-          aria-labelledby="menu-button"
+          aria-labelledby="menu-list-title"
           role="menu"
         >
           {dataList}
