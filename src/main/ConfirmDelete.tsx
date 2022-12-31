@@ -23,7 +23,7 @@ function ConfirmDelete(props: {
         <div className="delete-confirmation">
           <button
             type="button"
-            className="delete-close"
+            className="btn delete-close"
             onClick={props.exitWithoutDeleting}
           >
             <img src={IconClose} alt="Close without deleting page" />
