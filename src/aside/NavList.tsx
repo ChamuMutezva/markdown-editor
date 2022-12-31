@@ -17,13 +17,13 @@ function NavList(props: {
     <NavListItem
       key={item.name}
       name={item.name}
-      date={item.createdAt}     
+      date={item.createdAt}
       _id={item._id!}
-      datum={props.data} 
-      setExpand={props.setExpand()}    
+      datum={props.data}
+      setExpand={props.setExpand()}
     />
   ));
- 
+
   useEffect(() => {
     if (props.expand) {
       btnRef.current?.focus();
@@ -36,12 +36,11 @@ function NavList(props: {
       <aside
         className={`navbar-collapse ${props.expand ? "collapse" : ""}`}
         hidden={!props.expand}
-        id="navbarSupportedContent"
-         aria-labelledby="menu-button"     
       >
+        
         <h2 className="aside-main-title">Markdown</h2>
         <h3 className="aside-secondary-title">My Documents</h3>
-        
+
         <button
           ref={btnRef}
           type="button"
@@ -50,9 +49,16 @@ function NavList(props: {
         >
           + New Document
         </button>
-        <ul className="navbar-nav flex" role="menu">{dataList}</ul>
-       
-        <ThemeControl setExpand={props.setExpand()} />       
+        <ul
+          className="navbar-nav flex"
+          id="navbarSupportedContent"
+          aria-labelledby="menu-button"
+          role="menu"
+        >
+          {dataList}
+        </ul>
+
+        <ThemeControl setExpand={props.setExpand()} />
       </aside>
     </FocusTrap>
   );
