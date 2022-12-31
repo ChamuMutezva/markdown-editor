@@ -33,22 +33,17 @@ Users should be able to:
 
 ### Screenshot
 ![mobile full page](src/assets/screenshots/mark-mobile.png)
+![confirm to edit](src/assets/screenshots/mark-edit.png)
 ![showing side navigation bar](src/assets/screenshots/mark-open.png)
 ![tablet 768](src/assets/screenshots/mark-tablet.png)
-![confirm to edit](src/assets/screenshots/mark-edit.png)
 ![confirm to delete](src/assets/screenshots/mark-delete.png)
 ![desktop fullpage](src/assets/screenshots/mark-desk-full.png)
-
-
-
-![](./screenshot.jpg)
-
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Markdown Editor](https://markdown-editor-ckm.netlify.app/)
-- link live site [aws link](https://dev.d3f1qjpgfbf286.amplifyapp.com/) 
+- Netlify URL: [Markdown Editor](https://markdown-editor-ckm.netlify.app/)
+- AWS URL [aws link](https://dev.d3f1qjpgfbf286.amplifyapp.com/) 
 
 ## My process
 
