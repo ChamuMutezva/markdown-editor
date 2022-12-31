@@ -32,6 +32,14 @@ Users should be able to:
 - **Bonus**: Build this project as a full-stack application
 
 ### Screenshot
+![mobile full page](src/assets/screenshots/mark-mobile.png)
+![showing side navigation bar](src/assets/screenshots/mark-open.png)
+![tablet 768](src/assets/screenshots/mark-tablet.png)
+![confirm to edit](src/assets/screenshots/mark-edit.png)
+![confirm to delete](src/assets/screenshots/mark-delete.png)
+![desktop fullpage](src/assets/screenshots/mark-desk-full.png)
+
+
 
 ![](./screenshot.jpg)
 
@@ -54,6 +62,7 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - [React-showdown](https://openbase.com/js/react-showdown/documentation) - HTML markup convertor
 - [AWS amplify](https://docs.amplify.aws/)- hosting and authentication
+- [Cyclic](https://docs.cyclic.sh/)- hosting backend and database
 
 ### What I learned
 
