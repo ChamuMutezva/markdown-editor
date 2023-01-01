@@ -139,6 +139,7 @@ See and listen to the video [How to deploy MERN App in 2 minutes | cyclic.sh | H
 
 
 ### Continued development
+- Progressive Web App (pwa) [pwa](https://vite-pwa-org.netlify.app/)
 
 ### Useful resources
 - [aws react tutorial setting](https://docs.amplify.aws/start/q/integration/react/) - a step by step guide for setting up AWS hosting using amplify
