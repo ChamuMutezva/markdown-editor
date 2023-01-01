@@ -47,7 +47,7 @@
     font-family: base.$font-roboto;
     font-weight: 500;
     font-size: base.$fs-14;
-    color: base.$clr-text-grey;
+    color: base.$clr-off-white;
     letter-spacing: 2px;
 }
 
@@ -243,6 +243,10 @@ blockquote {
 
     .result a {
         color: base.$clr-charcoal;
+    }
+
+    .markdown-toggle-heading {
+        color: base.$clr-charcoal2;
     }
 
 }
