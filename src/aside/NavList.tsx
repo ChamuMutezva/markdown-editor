@@ -52,7 +52,7 @@ function NavList(props: {
         <ul
           className="navbar-nav flex"
           id="navbarSupportedContent"
-          aria-labelledby="menu-list-title"
+          aria-labelledby="menu-button"
           role="menu"
         >
           {dataList}
