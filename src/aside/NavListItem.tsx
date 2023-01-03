@@ -33,11 +33,16 @@ function NavListItem(props: {
         role="menuitem"
         className="btn nav-link ff-barlow text-white letter-spacing-2 fs-14"
         data-name={props.name}
-        onClick={() => handleBtnClick(props._id)}
-        aria-current="page"
+        onClick={() => handleBtnClick(props._id)}       
       >
-        <span className="doc-nav-title">{props.name}</span>
-        <span className="date-created">{props.date}</span>
+        <span className="doc-nav-title">
+          <span className="sr-only">Title of file</span>
+          {props.name}
+        </span>
+        <span className="date-created">
+          <span className="sr-only">Date created</span>
+          <time dateTime={props.date}>{props.date}</time>         
+        </span>
       </button>
     </li>
   );

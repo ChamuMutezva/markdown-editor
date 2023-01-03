@@ -29,14 +29,17 @@ function ConfirmDelete(props: {
             <img src={IconClose} alt="Close without deleting page" />
           </button>
 
-          <h4 className="modal-heading">Delete this document?</h4>
-          <p className="modal-text">
+          <h4 id="modal-heading-delete" className="modal-heading">
+            Delete this document?
+          </h4>
+          <p id="modal-heading-text" className="modal-text">
             Are you sure you want to delete the{" "}
             <span className="modal-text-ID">{title}</span> document and its
             contents? This action cannot be reversed.
           </p>
           <button
             type="button"
+            aria-labelledby="modal-heading-text"
             className="btn-confirm-delete"
             onClick={props.confirmDelete}
           >
