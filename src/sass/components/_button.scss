@@ -98,3 +98,13 @@
         outline: dashed base.$clr-white;
     }
 }
+
+.btn-close-theme {
+    display: block;
+    bottom: 2rem;
+    margin-block: 1.5rem 1rem;
+    color: base.$clr-white;
+    background: base.$clr-orange-med;
+    padding: .5rem;
+    border-radius: 5px;
+}

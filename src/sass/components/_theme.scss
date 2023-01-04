@@ -7,7 +7,7 @@
   background-color: base.$clr-black;
   border: none;
   outline: none;
-  padding: 1rem 4.5rem;
+  padding: 1rem 3rem;
   border-radius: 15px;
 
 }
@@ -31,6 +31,6 @@
 
 .light-mode {
   .check {
-    transform: translate(120px);
+    transform: translate(72px);
   }
 }

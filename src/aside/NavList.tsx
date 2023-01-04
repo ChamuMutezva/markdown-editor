@@ -58,7 +58,14 @@ function NavList(props: {
           {dataList}
         </ul>
 
-        <ThemeControl setExpand={props.setExpand()} />
+        <ThemeControl />
+        
+        <button type="button"
+        className="btn btn-close-theme"
+        onClick={props.setExpand()}
+        >
+          Close menu
+        </button>
       </aside>
     </FocusTrap>
   );
