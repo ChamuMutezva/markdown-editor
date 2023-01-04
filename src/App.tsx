@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+/* eslint-disable react/jsx-no-bind */
+import React, { useState, useContext } from "react";
 import { Watch } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -57,7 +58,6 @@ function App() {
       });
 
       setDeleteModal(!deleteModal);
-      // eslint-disable-next-line no-underscore-dangle
       const remainingItems = data.filter(
         (item: { _id: string }) => item._id !== ID
       );
@@ -69,23 +69,22 @@ function App() {
       if (response.ok) {
         setError(null);
         setData?.(() => remainingItems);
-        // eslint-disable-next-line no-underscore-dangle
         changeContent?.(data[0]._id);
-        // console.log("document removed");
       }
     }
   };
 
+  // delete conntent
   function exitWithoutDeleting() {
-    // console.log("exit without deleting");
     setDeleteModal(!deleteModal);
   }
 
+  // during edit: exit without saving
   function exitWithoutSaving() {
-    // console.log("exit without deleting");
     setSaveEdits(!saveEdits);
   }
 
+  // Create new document
   function documentCreatedMethod() {
     setCreateDoc(false);
   }
@@ -101,7 +100,6 @@ function App() {
       toast.info(`The data with id ${ID} cannot be EDITED. Admin protected`);
       exitWithoutSaving();
     } else {
-      //  const { name, content } = targetItem;
       const response = await fetch(`${API_ENDPOINT_PATH}/${ID}`, {
         method: "PATCH",
         body: JSON.stringify({
@@ -123,16 +121,19 @@ function App() {
       if (response.ok) {
         setError(null);
       }
+      // show modal for successful edit
       toast.info(`The data with id ${ID} has been EDITED.`);
       setSaveEdits(!saveEdits);
     }
   };
-
+  /* ------------------------------------------------------------------------- */
+  /* --------------- END OF confirmSaveNewChanges FUNCTION ------------------- */
+  /* ------------------------------------------------------------------------- */
   const saveNewChanges = async () => {
     setSaveEdits(!saveEdits);
   };
 
-  useEffect(() => {}, [theme]);
+  // useEffect(() => {}, [theme]);
 
   const handleBtnAddDoc = async () => {
     // create and add new  document. Data template for any first time saved documents
@@ -166,7 +167,11 @@ function App() {
       setCreateDoc(true);
     }
   };
+  /* ------------------------------------------------------------------ */
+  /* --------------- END OF handleBtnAddDoc FUNCTION ------------------- */
+  /* ------------------------------------------------------------------- */
 
+  // modal to run before data is loaded
   if (fetchStatus !== "success") {
     // the timer , keeps track of the time it takes mongodb realm to
     // present the data. On average the site is taking 5 seconds
@@ -195,10 +200,8 @@ function App() {
         <>
           <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
             <Header
-              // eslint-disable-next-line react/jsx-no-bind
               handleClickMenuToggle={clickMenuToggle}
               saveNewChanges={saveNewChanges}
-              // eslint-disable-next-line react/jsx-no-bind
               deleteDocument={handleDeleteDocument}
               toggle={toggleMenu}
               data={data}
@@ -207,19 +210,16 @@ function App() {
           </div>
           <SaveNewChangesComponent
             saveEdits={saveEdits}
-            // eslint-disable-next-line react/jsx-no-bind
             exitWithoutSaving={exitWithoutSaving}
             confirmSaveNewChanges={confirmSaveNewChanges}
           />
           <ConfirmDelete
             deleteModal={deleteModal}
-            // eslint-disable-next-line react/jsx-no-bind
             exitWithoutDeleting={exitWithoutDeleting}
             confirmDelete={handleConfirmDelete}
           />
           <NewDocAdded
             createDoc={createDoc}
-            // eslint-disable-next-line react/jsx-no-bind
             documentCreatedMethod={documentCreatedMethod}
           />
         </>
