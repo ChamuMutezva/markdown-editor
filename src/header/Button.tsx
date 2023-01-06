@@ -1,35 +1,35 @@
 /* eslint-disable react/destructuring-assignment */
-import React from "react";
+import React, { useContext } from "react";
+import { ToggleMenuContext } from "../context/ToggleMenuContext";
 import IconClose from "../assets/icon-close.svg";
 import MenuIcon from "../assets/icon-menu.svg";
 
 // open and close the menu button to toggle the available list of files/documents
-function Button(props: {
-  click: React.MouseEventHandler<HTMLButtonElement>;
-  expand: boolean;
-}) {
+function Button() {
+  const { toggleMenu, onChangeToggleMenu } = useContext(ToggleMenuContext);
+
   return (
     <button
       type="button"
       id="menu-button"
-      onClick={props.click}
+      onClick={() => onChangeToggleMenu?.(toggleMenu)}
       className="btn navbar-toggler menu-btn-js"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
-      aria-expanded={props.expand}
+      aria-expanded={toggleMenu}
       aria-haspopup="menu"
       aria-label="Toggle menu navigation"
     >
       <img
-        className={`menu-image ${props.expand ? "hide-icon-js" : ""}`}
+        className={`menu-image ${toggleMenu ? "hide-icon-js" : ""}`}
         src={MenuIcon}
         width={18}
         height={12}
         alt=""
       />
       <img
-        className={`close ${props.expand ? "" : "hide-icon-js"}`}
+        className={`close ${toggleMenu ? "" : "hide-icon-js"}`}
         src={IconClose}
         alt=""
       />

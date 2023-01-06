@@ -9,8 +9,6 @@ import Button from "./Button";
 
 function Header(props: {
   saveNewChanges: React.MouseEventHandler<HTMLButtonElement>;
-  handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>;
-  toggle: boolean;  
   deleteDocument: React.MouseEventHandler<HTMLButtonElement>;
 }) {
   const { ID, changeContent, title, setTitle } = useContext(ContentContext);
@@ -27,7 +25,7 @@ function Header(props: {
     <header className="header">
       <div className="top-menu">
         <nav className="nav">
-          <Button click={props.handleClickMenuToggle} expand={props.toggle} />
+          <Button />
         </nav>
 
         <div className="current-file">
@@ -61,7 +59,11 @@ function Header(props: {
             </label>
           </div>
           <div className="maintenance">
-            <button type="button" className="btn btn-save" onClick={props.saveNewChanges}>
+            <button
+              type="button"
+              className="btn btn-save"
+              onClick={props.saveNewChanges}
+            >
               <img
                 src={SaveNotes}
                 className="notes-img"
@@ -71,7 +73,11 @@ function Header(props: {
               />
               <span className="sr-only show-btn-text">Save changes</span>
             </button>
-            <button type="button" className="btn btn-delete" onClick={props.deleteDocument}>
+            <button
+              type="button"
+              className="btn btn-delete"
+              onClick={props.deleteDocument}
+            >
               <img src={DeleteRecord} width={18} height={20} alt="" />
               <span className="sr-only">Delete a record</span>
             </button>

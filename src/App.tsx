@@ -19,7 +19,7 @@ import { ToggleMenuContext } from "./context/ToggleMenuContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const {toggleMenu, onChangeToggleMenu} = useContext(ToggleMenuContext)
+  const { toggleMenu, onChangeToggleMenu } = useContext(ToggleMenuContext);
   const {
     ID,
     title,
@@ -129,8 +129,6 @@ function App() {
     setSaveEdits(!saveEdits);
   };
 
-  // useEffect(() => {}, [theme]);
-
   const handleBtnAddDoc = async () => {
     // create and add new  document. Data template for any first time saved documents
     const current = new Date();
@@ -186,18 +184,14 @@ function App() {
         theme ? "light-mode" : ""
       }`}
     >
-      <AsideNav       
-        data={data}
-        handleAdd={handleBtnAddDoc}
-      />
+      <AsideNav data={data} handleAdd={handleBtnAddDoc} />
+
       {data && data.length > 0 ? (
         <>
           <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
             <Header
-              handleClickMenuToggle={() => onChangeToggleMenu?.(toggleMenu)}
               saveNewChanges={saveNewChanges}
               deleteDocument={handleDeleteDocument}
-              toggle={toggleMenu}             
             />
 
             <MainComponent data={data} />
