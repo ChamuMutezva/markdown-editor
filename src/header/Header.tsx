@@ -1,7 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useContext, useEffect } from "react";
 import { ContentContext } from "../context/ContentContext";
-import { DataTypes } from "../context/Types";
 import DeleteRecord from "../assets/icon-delete.svg";
 import SaveNotes from "../assets/icon-save.svg";
 import Document from "../assets/icon-document.svg";
@@ -11,9 +10,7 @@ import Button from "./Button";
 function Header(props: {
   saveNewChanges: React.MouseEventHandler<HTMLButtonElement>;
   handleClickMenuToggle: React.MouseEventHandler<HTMLButtonElement>;
-  toggle: boolean;
-  // eslint-disable-next-line react/no-unused-prop-types
-  data: DataTypes[];
+  toggle: boolean;  
   deleteDocument: React.MouseEventHandler<HTMLButtonElement>;
 }) {
   const { ID, changeContent, title, setTitle } = useContext(ContentContext);

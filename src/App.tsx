@@ -203,9 +203,9 @@ function App() {
               handleClickMenuToggle={clickMenuToggle}
               saveNewChanges={saveNewChanges}
               deleteDocument={handleDeleteDocument}
-              toggle={toggleMenu}
-              data={data}
+              toggle={toggleMenu}             
             />
+            
             <MainComponent data={data} />
           </div>
           <SaveNewChangesComponent
