@@ -15,9 +15,11 @@ import { ThemeContext } from "./context/ThemeContext";
 import { DataTypes } from "./context/Types";
 import { API_ENDPOINT_PATH } from "./config";
 import NewDocAdded from "./main/NewDocAdded";
+import { ToggleMenuContext } from "./context/ToggleMenuContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
+  const {toggleMenu, onChangeToggleMenu} = useContext(ToggleMenuContext)
   const {
     ID,
     title,
@@ -28,16 +30,10 @@ function App() {
     fetchStatus,
   } = useContext(ContentContext);
   const [timer, setTimer] = useState(0);
-  const [toggleMenu, setToggleMenu] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false); // display delete-modal dialogue
   const [saveEdits, setSaveEdits] = useState(false); // display save-edits dialogue
   const [createDoc, setCreateDoc] = useState(false); // display feedback - doc created
   const [, setError] = useState(null);
-
-  // open the aside menu to show the list of docs or close
-  function clickMenuToggle() {
-    setToggleMenu(!toggleMenu);
-  }
 
   // open delete modal , confirm to proceed deletion
   function handleDeleteDocument() {
@@ -161,7 +157,7 @@ function App() {
     }
 
     if (response.ok) {
-      clickMenuToggle();
+      onChangeToggleMenu?.(toggleMenu);
       setError(null);
       setData?.(data.concat(docObject));
       setCreateDoc(true);
@@ -190,9 +186,7 @@ function App() {
         theme ? "light-mode" : ""
       }`}
     >
-      <AsideNav
-        expand={toggleMenu}
-        setExpand={() => clickMenuToggle}
+      <AsideNav       
         data={data}
         handleAdd={handleBtnAddDoc}
       />
@@ -200,12 +194,12 @@ function App() {
         <>
           <div className={`main-page ${toggleMenu ? "collapse" : ""}`}>
             <Header
-              handleClickMenuToggle={clickMenuToggle}
+              handleClickMenuToggle={() => onChangeToggleMenu?.(toggleMenu)}
               saveNewChanges={saveNewChanges}
               deleteDocument={handleDeleteDocument}
               toggle={toggleMenu}             
             />
-            
+
             <MainComponent data={data} />
           </div>
           <SaveNewChangesComponent

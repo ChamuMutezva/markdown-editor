@@ -1,13 +1,12 @@
 import NavList from './NavList'
 import { DataTypes } from '../context/Types';
 
-function AsideNav(props: {
-  setExpand: any;
-  handleAdd: any; expand: boolean; data: DataTypes[]; 
+function AsideNav(props: {  
+  handleAdd: any;  data: DataTypes[]; 
 }) {
   return (
     // eslint-disable-next-line react/destructuring-assignment
-    <NavList expand={props.expand} setExpand={props.setExpand} data={props.data} handleAdd={props.handleAdd} />
+    <NavList  data={props.data} handleAdd={props.handleAdd} />
   )
 }
 

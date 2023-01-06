@@ -3,6 +3,11 @@ export interface ThemeTypes {
     onChangeTheme?: (theme: boolean) => void
 }
 
+export interface ToggleTypes {
+    toggleMenu: boolean;
+    onChangeToggleMenu?: (toggleMenu: boolean) => void
+}
+
 export interface ContentTypes {
     ID: string;
     changeContent?: (ID: string) => void;

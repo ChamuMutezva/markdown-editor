@@ -1,18 +1,18 @@
 /* eslint-disable react/destructuring-assignment */
 import { useContext } from "react";
 import { ContentContext } from "../context/ContentContext";
+import { ToggleMenuContext } from "../context/ToggleMenuContext";
 import { DataTypes } from "../context/Types";
 
 function NavListItem(props: {
   name: string;
   date: string;
   _id: string;
-  datum: DataTypes[];
-  setExpand: any;
+  datum: DataTypes[]; 
 }) {
   const { ID, changeContent, setTitle, setMarkdownContent } =
     useContext(ContentContext);
-
+const {toggleMenu, onChangeToggleMenu} = useContext(ToggleMenuContext)
   function handleBtnClick(id: string) {
     if (id !== ID) {
       // when passed id is not equal to the current ID , get this particular item and reset the current item to be in view
@@ -21,7 +21,7 @@ function NavListItem(props: {
       changeContent?.(id);
       setTitle?.(targetItem?.name!);
       setMarkdownContent?.(targetItem?.content!);
-      props.setExpand();
+      onChangeToggleMenu?.(toggleMenu);
     }
   }
   // console.log(`The value of expand is ${props.expand}`)
