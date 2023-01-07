@@ -24,6 +24,7 @@ function Button() {
       <img
         className={`menu-image ${toggleMenu ? "hide-icon-js" : ""}`}
         src={MenuIcon}
+        aria-hidden
         width={18}
         height={12}
         alt=""
@@ -31,6 +32,9 @@ function Button() {
       <img
         className={`close ${toggleMenu ? "" : "hide-icon-js"}`}
         src={IconClose}
+        aria-hidden
+        width={24}
+        height={24}
         alt=""
       />
     </button>
