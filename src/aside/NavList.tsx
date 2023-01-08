@@ -13,7 +13,7 @@ function NavList(props: {
   // setExpand: any;
 }) {
 
-  const { toggleMenu, onChangeToggleMenu} = useContext(ToggleMenuContext)
+  const { toggleMenu, setToggleMenu} = useContext(ToggleMenuContext)
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const dataList = props.data.map((item) => (
@@ -64,7 +64,7 @@ function NavList(props: {
         
         <button type="button"
         className="btn btn-close-theme"
-        onClick={() => onChangeToggleMenu?.(toggleMenu)}
+        onClick={() => setToggleMenu(toggleMenu)}
         >
           Close menu
         </button>

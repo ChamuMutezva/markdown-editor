@@ -5,7 +5,7 @@ export interface ThemeTypes {
 
 export interface ToggleTypes {
     toggleMenu: boolean;
-    onChangeToggleMenu?: (toggleMenu: boolean) => void
+    setToggleMenu: (toggleMenu: boolean) => void
 }
 
 export interface ContentTypes {

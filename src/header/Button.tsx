@@ -6,13 +6,13 @@ import MenuIcon from "../assets/icon-menu.svg";
 
 // open and close the menu button to toggle the available list of files/documents
 function Button() {
-  const { toggleMenu, onChangeToggleMenu } = useContext(ToggleMenuContext);
+  const { toggleMenu, setToggleMenu } = useContext(ToggleMenuContext);
 
   return (
     <button
       type="button"
       id="menu-button"
-      onClick={() => onChangeToggleMenu?.(toggleMenu)}
+      onClick={() => setToggleMenu(toggleMenu)}
       className="btn navbar-toggler menu-btn-js"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"

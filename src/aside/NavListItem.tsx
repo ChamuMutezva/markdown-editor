@@ -12,7 +12,7 @@ function NavListItem(props: {
 }) {
   const { ID, changeContent, setTitle, setMarkdownContent } =
     useContext(ContentContext);
-const {toggleMenu, onChangeToggleMenu} = useContext(ToggleMenuContext)
+const {toggleMenu, setToggleMenu} = useContext(ToggleMenuContext)
   function handleBtnClick(id: string) {
     if (id !== ID) {
       // when passed id is not equal to the current ID , get this particular item and reset the current item to be in view
@@ -21,7 +21,7 @@ const {toggleMenu, onChangeToggleMenu} = useContext(ToggleMenuContext)
       changeContent?.(id);
       setTitle?.(targetItem?.name!);
       setMarkdownContent?.(targetItem?.content!);
-      onChangeToggleMenu?.(toggleMenu);
+      setToggleMenu(toggleMenu);
     }
   }
   // console.log(`The value of expand is ${props.expand}`)

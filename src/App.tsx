@@ -19,7 +19,7 @@ import { ToggleMenuContext } from "./context/ToggleMenuContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const { toggleMenu, onChangeToggleMenu } = useContext(ToggleMenuContext);
+  const { toggleMenu, setToggleMenu } = useContext(ToggleMenuContext);
   const {
     ID,
     title,
@@ -155,7 +155,7 @@ function App() {
     }
 
     if (response.ok) {
-      onChangeToggleMenu?.(toggleMenu);
+      setToggleMenu(toggleMenu);
       setError(null);
       setData?.(data.concat(docObject));
       setCreateDoc(true);
