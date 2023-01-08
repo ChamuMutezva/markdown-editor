@@ -4,10 +4,10 @@ import DarkMode from "../assets/icon-dark-mode.svg";
 import { ThemeContext } from "../context/ThemeContext";
 
 function ThemeControl() {
-  const { theme, onChangeTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const onChange = () => {
-    onChangeTheme?.(theme);    
+    setTheme(!theme);    
   };
 
   return (
