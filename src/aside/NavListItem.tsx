@@ -21,7 +21,7 @@ const {toggleMenu, setToggleMenu} = useContext(ToggleMenuContext)
       changeContent?.(id);
       setTitle?.(targetItem?.name!);
       setMarkdownContent?.(targetItem?.content!);
-      setToggleMenu(toggleMenu);
+      setToggleMenu(!toggleMenu);
     }
   }
   // console.log(`The value of expand is ${props.expand}`)

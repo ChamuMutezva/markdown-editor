@@ -64,7 +64,7 @@ function NavList(props: {
         
         <button type="button"
         className="btn btn-close-theme"
-        onClick={() => setToggleMenu(toggleMenu)}
+        onClick={() => setToggleMenu(!toggleMenu)}
         >
           Close menu
         </button>
