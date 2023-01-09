@@ -1,21 +1,25 @@
 /* eslint-disable react/destructuring-assignment */
-import  { createContext, useState } from 'react'
-import { ThemeTypes } from './Types'
+import { createContext, useState } from "react";
+import { ThemeTypes } from "./Types";
 
-const  defaultState = {
-    theme: true,
-    setTheme: () => true 
-}
+const defaultState = {
+  theme: true,
+  onChangeTheme: () => true,
+};
 
-export const ThemeContext = createContext<ThemeTypes>(defaultState)
+export const ThemeContext = createContext<ThemeTypes>(defaultState);
 
-export function ThemeProvider(props: { children: any }) {   
-    const [theme, setTheme] = useState(defaultState.theme)  
+export function ThemeProvider(props: { children: any }) {
+  const [theme, setTheme] = useState(defaultState.theme);
 
-    return (
-        // eslint-disable-next-line react/jsx-no-constructed-context-values, react/jsx-no-comment-textnodes
-        <ThemeContext.Provider value={{ theme, setTheme }}>           
-            {props.children}
-        </ThemeContext.Provider>
-    )
+  function onChangeTheme() {
+    setTheme(!theme);
+  }
+
+  return (
+    // eslint-disable-next-line react/jsx-no-constructed-context-values, react/jsx-no-comment-textnodes
+    <ThemeContext.Provider value={{ theme, onChangeTheme}}>
+      {props.children}
+    </ThemeContext.Provider>
+  );
 }

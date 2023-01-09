@@ -1,6 +1,6 @@
 export interface ThemeTypes {
     theme: boolean;
-    setTheme: (theme: boolean) => void
+    onChangeTheme: (theme: boolean) => void
 }
 
 export interface ToggleTypes {
