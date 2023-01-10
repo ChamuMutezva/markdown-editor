@@ -40,7 +40,7 @@ function ConfirmDelete(props: {
           <button
             type="button"
             aria-labelledby="modal-heading-text"
-            className="btn-confirm-delete"
+            className="btn btn-confirm-delete"
             onClick={props.confirmDelete}
           >
             Confirm & Delete
