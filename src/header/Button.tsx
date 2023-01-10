@@ -13,7 +13,8 @@ function Button() {
       type="button"
       id="menu-button"
       onClick={() => setToggleMenu(!toggleMenu)}
-      className="btn navbar-toggler menu-btn-js"
+      className="btn navbar-toggler menu-btn-js}"
+      disabled={!!toggleMenu}
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
