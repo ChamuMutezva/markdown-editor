@@ -41,9 +41,19 @@
     }
 }
 
-.btn-preview,
 .menu-btn-js {
     @include utils.flex();
+}
+
+.btn-preview {
+    color: base.$clr-white;
+    @include utils.flex();
+}
+
+.light-mode {
+    .btn-preview {
+        color: base.$clr-black;
+    }
 }
 
 .btn-add-document {
