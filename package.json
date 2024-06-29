@@ -11,8 +11,7 @@
     "sass": "sass src/sass:src/css --watch --no-source-map"
   },
   "dependencies": {
-    "@aws-amplify/cli": "^10.5.2",
-    "aws-amplify": "^5.0.7",
+    "@vitejs/plugin-react": "^2.1.0",
     "focus-trap-react": "^10.0.2",
     "nanoid": "^4.0.0",
     "netlify-cli": "^2.37.0",
@@ -22,9 +21,8 @@
     "react-showdown": "^2.3.1",
     "react-toastify": "^9.1.1",
     "realm-web": "^1.7.1",
-    "@vitejs/plugin-react": "^2.1.0",
-    "vite-plugin-pwa": "^0.14.0",
-    "vite": "^3.1.0"
+    "vite": "^3.1.0",
+    "vite-plugin-pwa": "^0.14.0"
   },
   "devDependencies": {
     "@netlify/plugin-a11y": "^1.0.0-beta.1",
@@ -33,7 +31,7 @@
     "@types/react-dom": "^18.0.6",
     "@types/showdown": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
-    "@typescript-eslint/parser": "^5.47.0",    
+    "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^8.30.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -44,7 +42,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.1",
     "sass": "^1.55.0",
-    "typescript": "^4.6.4"  
+    "typescript": "^4.6.4"
   },
   "proxy": "http://localhost:4000"
 }
